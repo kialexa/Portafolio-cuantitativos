@@ -16,6 +16,75 @@ body{
     color:#4a3b4d;
 }
 
+/* BOTÓN WHATSAPP */
+
+.boton-whatsapp{
+    position:fixed;
+    bottom:100px;
+    right:30px;
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+    border:none;
+
+    background:#25d366;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+
+    z-index:999;
+
+    transition:.3s;
+
+    text-decoration:none;
+}
+
+.boton-whatsapp:hover{
+    transform:scale(1.08);
+    background:#1ebe5d;
+}
+
+.boton-whatsapp:hover ~ .tooltip-whatsapp{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.tooltip-whatsapp{
+    position:fixed;
+    bottom:140px;
+    right:20px;
+
+    max-width:200px;
+
+    background:white;
+    color:#128c3e;
+
+    font-size:.82rem;
+    font-weight:bold;
+
+    padding:7px 13px;
+    border-radius:14px;
+
+    box-shadow:0 4px 14px rgba(0,0,0,.15);
+
+    z-index:999;
+
+    text-align:right;
+
+    opacity:0;
+    transform:translateY(6px);
+    transition:opacity .25s ease, transform .25s ease;
+
+    pointer-events:none;
+}
+
 /* COMANDO DE VOZ */
 
 .boton-voz{
@@ -535,4 +604,34 @@ main{
 
 .tabla-final th{
     background:#a83572;
+}
+/* BOTÓN EXPOSICIÓN PDF */
+
+.btn-exposicion{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    margin-bottom:25px;
+
+    padding:11px 24px;
+
+    background:linear-gradient(135deg,#d44b93,#a83572);
+    color:white;
+
+    font-size:.95rem;
+    font-weight:bold;
+    text-decoration:none;
+
+    border-radius:20px;
+
+    box-shadow:0 4px 14px rgba(212,75,147,.35);
+
+    transition:.3s;
+}
+
+.btn-exposicion:hover{
+    transform:translateY(-3px);
+    box-shadow:0 7px 20px rgba(212,75,147,.45);
+    background:linear-gradient(135deg,#e85ea8,#c0437f);
 }
