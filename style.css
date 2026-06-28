@@ -1,0 +1,538 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:linear-gradient(
+        135deg,
+        #fff5fa,
+        #ffe0ef,
+        #f3e5ff
+    );
+    min-height:100vh;
+    color:#4a3b4d;
+}
+
+/* COMANDO DE VOZ */
+
+.boton-voz{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+    border:none;
+
+    background:#ff7eb6;
+    color:white;
+
+    font-size:1.8rem;
+    line-height:1;
+
+    cursor:pointer;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+
+    z-index:999;
+
+    transition:.3s;
+}
+
+.boton-voz:hover{
+    transform:scale(1.08);
+    background:#d44b93;
+}
+
+.boton-voz.escuchando{
+    background:#e74c3c;
+    animation:pulso-rojo 1s infinite;
+}
+
+.boton-voz.leyendo{
+    background:#27ae60;
+    animation:pulso-verde 1.4s infinite;
+}
+
+@keyframes pulso-rojo{
+    0%  { box-shadow:0 0 0 0 rgba(231,76,60,.5); }
+    70% { box-shadow:0 0 0 18px rgba(231,76,60,0); }
+    100%{ box-shadow:0 0 0 0 rgba(231,76,60,0); }
+}
+
+@keyframes pulso-verde{
+    0%  { box-shadow:0 0 0 0 rgba(39,174,96,.5); }
+    70% { box-shadow:0 0 0 18px rgba(39,174,96,0); }
+    100%{ box-shadow:0 0 0 0 rgba(39,174,96,0); }
+}
+
+.estado-voz{
+    position:fixed;
+    bottom:98px;
+    right:20px;
+
+    max-width:220px;
+
+    background:white;
+    color:#a83572;
+
+    font-size:.85rem;
+    font-weight:bold;
+
+    padding:8px 14px;
+    border-radius:14px;
+
+    box-shadow:0 4px 14px rgba(0,0,0,.15);
+
+    z-index:999;
+
+    text-align:right;
+}
+
+.estado-voz:empty{
+    display:none;
+}
+
+/* LIBRO ANIMADO */
+
+.book-container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    perspective:1800px;
+
+    transition:opacity .5s ease, transform .5s ease;
+}
+
+.book-container.cerrando-todo{
+    opacity:0;
+    transform:scale(.92);
+}
+
+.book{
+    position:relative;
+    width:800px;
+    max-width:95%;
+    height:500px;
+    transform-style:preserve-3d;
+}
+
+.book-pages{
+    position:absolute;
+    inset:0;
+
+    background:rgba(255,255,255,.35);
+    backdrop-filter:blur(12px);
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.1);
+
+    padding:50px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    z-index:1;
+}
+
+.book-pages h2{
+    font-size:1rem;
+    color:#d44b93;
+    font-weight:bold;
+    letter-spacing:.5px;
+}
+
+.book-pages h1{
+    font-size:3.4rem;
+    margin-top:12px;
+    color:#d44b93;
+}
+
+.book-pages p{
+    margin-top:10px;
+    line-height:1.6;
+}
+
+.book-pages button{
+
+    margin-top:30px;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#ff7eb6;
+
+    color:white;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.book-pages button:hover{
+    background:#d44b93;
+    transform:translateY(-4px);
+}
+
+.book-cover{
+    position:absolute;
+    top:0;
+    width:50%;
+    height:100%;
+
+    background:linear-gradient(135deg,#d44b93,#a83572);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.3);
+
+    z-index:3;
+
+    backface-visibility:hidden;
+
+    transition:transform 1s cubic-bezier(.65,0,.35,1);
+}
+
+.left-cover{
+    left:0;
+    border-radius:20px 4px 4px 20px;
+    transform-origin:left center;
+    transform:rotateY(-115deg);
+}
+
+.right-cover{
+    right:0;
+    border-radius:4px 20px 20px 4px;
+    transform-origin:right center;
+    transform:rotateY(115deg);
+}
+
+.book.cerrando .left-cover,
+.book.cerrando .right-cover{
+    transform:rotateY(0deg);
+}
+
+/* CONTENIDO */
+
+#contenido{
+    display:none;
+}
+
+header{
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 50px;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-weight:bold;
+    color:#d44b93;
+}
+
+nav{
+    display:flex;
+    gap:10px;
+}
+
+nav button{
+
+    border:none;
+
+    background:#ffd5ea;
+
+    padding:10px 20px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+}
+
+main{
+    padding:40px;
+}
+
+.seccion{
+    display:none;
+}
+
+.activa{
+    display:block;
+}
+
+.card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+}
+
+.titulo-seccion{
+    margin-bottom:30px;
+    color:#d44b93;
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+}
+
+.metodo-card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.metodo-card:hover{
+    transform:translateY(-8px);
+}
+
+.icono{
+    font-size:3rem;
+}
+
+.metodo-card h3{
+    margin:15px 0;
+}
+
+.metodo-card button{
+
+    margin-top:20px;
+
+    background:#ff7eb6;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+}
+
+.metodo-card button:disabled{
+    background:#e8c9da;
+    cursor:not-allowed;
+    opacity:.7;
+}
+
+.badge{
+    display:inline-block;
+    font-size:.7rem;
+    font-weight:bold;
+    padding:4px 12px;
+    border-radius:20px;
+    margin-bottom:10px;
+    letter-spacing:.5px;
+}
+
+.badge-listo{
+    background:#d6f5e3;
+    color:#1f9d55;
+}
+
+.badge-pendiente{
+    background:#ffe6d5;
+    color:#d4793f;
+}
+
+/* TEMA DETALLE */
+
+.red-diagrama{
+    margin:20px auto;
+    max-width:620px;
+    background:#fff5fa;
+    border-radius:20px;
+    padding:20px;
+}
+
+.red-diagrama svg{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.intro-submenu{
+    text-align:center;
+    color:#7a657d;
+    margin-bottom:25px;
+    font-style:italic;
+}
+
+.tema-detalle{
+    animation:fadeIn .4s ease;
+}
+
+@keyframes fadeIn{
+    from{ opacity:0; transform:translateY(10px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+.btn-volver{
+    border:none;
+    background:#ffd5ea;
+    color:#a83572;
+    padding:10px 22px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-bottom:25px;
+    transition:.3s;
+}
+
+.btn-volver:hover{
+    background:#ff7eb6;
+    color:white;
+}
+
+.resumen-ejecutivo,
+.ejercicio{
+    margin-bottom:25px;
+    text-align:left;
+}
+
+.resumen-ejecutivo h3,
+.ejercicio h3{
+    color:#d44b93;
+    margin-bottom:15px;
+}
+
+.ejercicio h4{
+    color:#a83572;
+    margin:25px 0 12px;
+    border-left:4px solid #ff7eb6;
+    padding-left:12px;
+}
+
+.ejercicio p,
+.resumen-ejecutivo p{
+    margin-bottom:12px;
+    line-height:1.6;
+}
+
+.nota{
+    font-size:.9rem;
+    color:#7a657d;
+    font-style:italic;
+    background:#fff5fa;
+    padding:10px 15px;
+    border-radius:10px;
+}
+
+.nota-personalizar{
+    font-size:.85rem;
+    color:#a83572;
+    background:#ffe6d5;
+    padding:10px 15px;
+    border-radius:10px;
+    font-style:italic;
+}
+
+.formula-box{
+    background:#fff0f7;
+    border:1px dashed #ff7eb6;
+    color:#a83572;
+    font-family:'Courier New', monospace;
+    font-size:1.05rem;
+    text-align:center;
+    padding:14px;
+    border-radius:12px;
+    margin:15px 0;
+}
+
+.paso{
+    background:#fff5fa;
+    border-radius:12px;
+    padding:15px 20px;
+    margin:15px 0;
+}
+
+.paso p{
+    font-family:'Courier New', monospace;
+    font-size:.95rem;
+    margin-bottom:8px;
+}
+
+.tabla-resultados{
+    width:100%;
+    border-collapse:collapse;
+    margin:15px 0 20px;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.tabla-resultados th{
+    background:#d44b93;
+    color:white;
+    padding:12px;
+    font-size:.9rem;
+    text-align:center;
+}
+
+.tabla-resultados td{
+    padding:10px 12px;
+    text-align:center;
+    border-bottom:1px solid #ffe0ef;
+    font-size:.9rem;
+}
+
+.tabla-resultados tbody tr:nth-child(even){
+    background:#fff5fa;
+}
+
+.resultado-destacado{
+    font-weight:bold;
+    color:#d44b93;
+}
+
+.tabla-final th{
+    background:#a83572;
+}

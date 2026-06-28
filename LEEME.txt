@@ -1,0 +1,9 @@
+PORTAFOLIO DIGITAL - UCR
+
+Instrucciones:
+1. Abrir el archivo index.html en Google Chrome, Edge o Firefox.
+2. Tocar "Comenzar".
+3. Entrar a la pestaña "Cadenas de Markov".
+4. Editar el HTML para agregar nuevos métodos cuando tenga las demás exposiciones.
+
+Este prototipo es un archivo HTML independiente con CSS y JavaScript incluidos.

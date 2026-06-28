@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Métodos Cuantitativos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LIBRO ANIMADO -->
+
+    <section id="bookIntro" class="book-container">
+
+        <div id="book" class="book">
+
+            <div class="book-cover left-cover"></div>
+
+            <div class="book-pages">
+
+                <h2>🌸 Universidad de Costa Rica 🌸</h2><br>
+                <h2>Sede del caribe</h2>
+
+                <h1>PORTAFOLIO</h1>
+
+                <p>Métodos Cuantitativos para la Toma de Decisiones</p>
+
+                <p><strong>Valery Barboza Artavia</strong></p>
+
+                <p>Profesora: Michelle Jiménez</p>
+
+                <button onclick="abrirLibro()">
+                     Abrir Portafolio
+                </button>
+
+            </div>
+
+            <div class="book-cover right-cover"></div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTENIDO -->
+
+    <div id="contenido">
+
+        <!-- COMANDO DE VOZ -->
+
+        <span id="estadoVoz" class="estado-voz"></span>
+
+        <button id="botonVoz" class="boton-voz"
+                onclick="activarComandoVoz()"
+                title="Comando de voz: decí 'leer' para escuchar el ejercicio, o 'detener' para pararlo">
+            🎤
+        </button>
+
+        <header>
+
+            <div class="logo">
+                Portafolio Cuantitativo
+            </div>
+
+            <nav>
+
+                <button onclick="mostrarSeccion('inicio')">Inicio</button>
+
+                <button onclick="mostrarSeccion('metodos')">Métodos</button>
+
+                <button onclick="mostrarSeccion('acerca')">Acerca de</button>
+
+            </nav>
+
+        </header>
+
+        <main>
+
+            <!-- INICIO -->
+
+            <section id="inicio" class="seccion activa">
+
+                <div class="card">
+
+                    <h2> Bienvenida</h2><br>
+
+                    <p>
+                        Este portafolio reúne de manera organizada los conocimientos, habilidades y competencias 
+                        adquiridas a lo largo del curso de Métodos Cuantitativos para la Toma de Decisiones. 
+                        Su propósito es evidenciar el proceso de aprendizaje desarrollado durante el período académico, 
+                        mostrando la aplicación práctica de diferentes técnicas y modelos cuantitativos utilizados para analizar problemas, 
+                        evaluar alternativas y apoyar la toma de decisiones en distintos contextos organizacionales y empresariales.
+                    </p><br>
+
+                    <p>
+                       A lo largo del documento se presentan los principales temas abordados en el curso, 
+                       acompañados de un resumen ejecutivo que sintetiza los conceptos más importantes, 
+                       así como ejercicios resueltos paso a paso que permiten comprender la metodología empleada en cada caso. 
+                       Además, se incluye la interpretación de los resultados obtenidos, destacando su relevancia para la toma de decisiones y 
+                       su aplicación en situaciones reales.
+                    </p><br>
+                  
+
+                    <p>
+                        Con el fin de fortalecer el aprendizaje y facilitar la consulta posterior, 
+                        cada sección incorpora recursos complementarios, tales como definiciones clave, 
+                        ejemplos prácticos, diagramas, tablas, fórmulas y recomendaciones de estudio. 
+                        De esta manera, el portafolio no solo funciona como una recopilación de evidencias académicas, 
+                        sino también como una herramienta de referencia que integra los conocimientos fundamentales del curso de forma clara, 
+                        estructurada y accesible.
+                    </p>
+
+                
+
+                </div>
+
+            </section>
+
+            <!-- MÉTODOS -->
+
+            <section id="metodos" class="seccion">
+
+                <h2 class="titulo-seccion">
+                    Métodos del Curso
+                </h2>
+
+                <div class="grid">
+
+                    <div class="metodo-card">
+
+                        <span class="badge badge-listo">Completo</span>
+
+                        <div class="icono">🔮</div>
+
+                        <h3>Análisis Markov</h3>
+
+                        <p>
+                            Predicción de estados futuros mediante
+                            probabilidades de transición.
+                        </p>
+
+                        <button onclick="mostrarSeccion('tema-markov')">
+                            Ver Tema
+                        </button>
+
+                    </div>
+
+                    <div class="metodo-card">
+
+                        <span class="badge badge-listo">Completo</span>
+
+                        <div class="icono">📊</div>
+
+                        <h3>Control Estadístico</h3>
+
+                        <p>
+                            Monitoreo de procesos mediante gráficos
+                            de control y límites estadísticos.
+                        </p>
+
+                        <button onclick="mostrarSeccion('tema-control')">
+                            Ver Tema
+                        </button>
+
+                    </div>
+
+                    <div class="metodo-card">
+
+                        <span class="badge badge-listo">Completo</span>
+
+                        <div class="icono">🎲</div>
+
+                        <h3>Modelado de Simulación</h3>
+
+                        <p>
+                            Simulación Monte Carlo de escenarios
+                            con incertidumbre.
+                        </p>
+
+                        <button onclick="mostrarSeccion('tema-simulacion')">
+                            Ver Tema
+                        </button>
+
+                    </div>
+
+                    <div class="metodo-card">
+
+                        <span class="badge badge-listo">Completo</span>
+
+                        <div class="icono">🕸️</div>
+
+                        <h3>Modelos de Redes</h3>
+
+                        <p>
+                            Optimización de rutas, flujos y conexiones
+                            entre nodos.
+                        </p>
+
+                        <button onclick="mostrarSeccion('tema-redes')">
+                            Ver Tema
+                        </button>
+
+                    </div>
+
+                    <div class="metodo-card">
+
+                        <span class="badge badge-listo">Completo</span>
+
+                        <div class="icono">🚚</div>
+
+                        <h3>Modelos de Transporte</h3>
+
+                        <p>
+                            Optimización de costos de distribución.
+                        </p>
+
+                        <button onclick="mostrarSeccion('tema-transporte')">
+                            Ver Tema
+                        </button>
+
+                    </div>
+
+                    <div class="metodo-card">
+
+                        <span class="badge badge-listo">Completo</span>
+
+                        <div class="icono">📈</div>
+
+                        <h3>Programación</h3>
+
+                        <p>
+                            Programación entera: maximización de
+                            ganancias con variables enteras.
+                        </p>
+
+                        <button onclick="mostrarSeccion('tema-programacion')">
+                            Ver Tema
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- TEMA: CADENAS DE MARKOV -->
+
+            <section id="tema-markov" class="seccion tema-detalle">
+
+                <button class="btn-volver" onclick="mostrarSeccion('metodos')">
+                    ← Volver a Métodos
+                </button>
+
+                <h2 class="titulo-seccion">🔮 Análisis Markov</h2>
+
+                <div class="card resumen-ejecutivo">
+
+                    <h3>Resumen Ejecutivo</h3>
+
+                    <p>
+                        Una cadena de Markov es un modelo probabilístico que permite
+                        predecir el comportamiento futuro de un sistema a partir
+                        únicamente de su estado presente, sin importar la forma en que
+                        llegó a él (propiedad llamada "falta de memoria" o markoviana).
+                        El sistema se describe mediante un conjunto de <strong>estados</strong>
+                        posibles y una <strong>matriz de transición</strong>, donde cada fila
+                        indica la probabilidad de pasar de un estado a otro en un período
+                        de tiempo.
+                    </p>
+
+                    <p>
+                        Multiplicando un vector de probabilidades inicial por la matriz de
+                        transición de forma sucesiva, se obtiene la evolución del sistema
+                        período tras período. Cuando esas probabilidades dejan de cambiar
+                        de un período al siguiente, se dice que el sistema alcanzó su
+                        <strong>estado estable</strong> o de equilibrio a largo plazo, el
+                        cual puede calcularse resolviendo el sistema de ecuaciones
+                        π = π·P junto con la condición de que las probabilidades sumen 1.
+                    </p>
+
+                    <p>
+                        Este modelo resulta especialmente útil en contextos de mercado,
+                        como el análisis de lealtad y migración de clientes entre cadenas
+                        comerciales, porque permite anticipar hacia dónde se mueve la
+                        participación de mercado si los patrones de consumo se mantienen
+                        estables en el tiempo.
+                    </p>
+
+                </div>
+
+                <div class="card ejercicio">
+
+                    <h3>Ejercicio Resuelto: Mercado de Supermercados en Limón</h3>
+
+                    <h4>1. Planteamiento del caso</h4>
+
+                    <p>
+                        El comercio minorista en Limón se reparte entre tres alternativas
+                        principales: Maxi Palí, Megasuper y comercios locales. Se desea
+                        pronosticar cómo cambiaría la participación de mercado durante
+                        los próximos dos períodos y determinar el estado estable de largo
+                        plazo. Un período equivale a un año.
+                    </p>
+
+                    <p>
+                        El modelo de Markov se usa porque las familias pueden permanecer
+                        comprando en la misma cadena o cambiarse a otra según precios,
+                        promociones, ubicación, filas o cercanía al hogar y al trabajo.
+                    </p>
+
+                    <h4>2. Datos del problema</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr>
+                                <th>Estado</th>
+                                <th>Significado</th>
+                                <th>Participación inicial</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>M</td><td>Maxi Palí</td><td>0.45 = 45%</td></tr>
+                            <tr><td>G</td><td>Megasuper</td><td>0.35 = 35%</td></tr>
+                            <tr><td>L</td><td>Locales</td><td>0.20 = 20%</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="formula-box">π(0) = [0.45, 0.35, 0.20]</div>
+
+                    <p><strong>Matriz de transición P:</strong></p>
+
+                    <table class="tabla-resultados tabla-matriz">
+                        <thead>
+                            <tr>
+                                <th>Desde / Hacia</th>
+                                <th>M</th>
+                                <th>G</th>
+                                <th>L</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Desde M</td><td>0.88</td><td>0.07</td><td>0.05</td></tr>
+                            <tr><td>Desde G</td><td>0.10</td><td>0.85</td><td>0.05</td></tr>
+                            <tr><td>Desde L</td><td>0.15</td><td>0.10</td><td>0.75</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        La diagonal de la matriz representa la permanencia o lealtad de
+                        los clientes. Por ejemplo, 0.88 significa que el 88% de los
+                        clientes de Maxi Palí permanecen en Maxi Palí durante el
+                        siguiente año.
+                    </p>
+
+                    <h4>3. Cálculo de π(1)</h4>
+
+                    <div class="formula-box">π(n + 1) = π(n) · P</div>
+
+                    <div class="paso">
+                        <p>M = 0.45(0.88) + 0.35(0.10) + 0.20(0.15) = <strong>0.4610</strong></p>
+                        <p>G = 0.45(0.07) + 0.35(0.85) + 0.20(0.10) = <strong>0.3490</strong></p>
+                        <p>L = 0.45(0.05) + 0.35(0.05) + 0.20(0.75) = <strong>0.1900</strong></p>
+                    </div>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Cadena</th><th>Resultado π(1)</th><th>Porcentaje</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Maxi Palí</td><td>0.4610</td><td>46.10%</td></tr>
+                            <tr><td>Megasuper</td><td>0.3490</td><td>34.90%</td></tr>
+                            <tr><td>Locales</td><td>0.1900</td><td>19.00%</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>4. Cálculo de π(2)</h4>
+
+                    <p>Ahora se usa π(1) = [0.4610, 0.3490, 0.1900] como nuevo vector actual:</p>
+
+                    <div class="paso">
+                        <p>M = 0.4610(0.88) + 0.3490(0.10) + 0.1900(0.15) = <strong>0.46908</strong></p>
+                        <p>G = 0.4610(0.07) + 0.3490(0.85) + 0.1900(0.10) = <strong>0.34792</strong></p>
+                        <p>L = 0.4610(0.05) + 0.3490(0.05) + 0.1900(0.75) = <strong>0.18300</strong></p>
+                    </div>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Cadena</th><th>Resultado π(2)</th><th>Porcentaje</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Maxi Palí</td><td>0.46908</td><td>46.91%</td></tr>
+                            <tr><td>Megasuper</td><td>0.34792</td><td>34.79%</td></tr>
+                            <tr><td>Locales</td><td>0.18300</td><td>18.30%</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>5. Tabla de pronóstico</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Período</th><th>Maxi Palí</th><th>Megasuper</th><th>Locales</th><th>Suma</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>0</td><td>0.45000</td><td>0.35000</td><td>0.20000</td><td>1.00000</td></tr>
+                            <tr><td>1</td><td>0.46100</td><td>0.34900</td><td>0.19000</td><td>1.00000</td></tr>
+                            <tr><td>2</td><td>0.46908</td><td>0.34792</td><td>0.18300</td><td>1.00000</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        La suma debe dar 1 porque representa el 100% del mercado. Si en
+                        una tabla aparece 0.9999 o 1.0001, normalmente es por redondeo.
+                    </p>
+
+                    <h4>6. Estado estable</h4>
+
+                    <p>
+                        El estado estable busca la distribución que ya no cambia al
+                        multiplicarse por la matriz de transición. Se plantea:
+                    </p>
+
+                    <div class="formula-box">π = π · P</div>
+
+                    <p>Sea π = [M, G, L]. Entonces:</p>
+
+                    <div class="paso">
+                        <p>M = 0.88M + 0.10G + 0.15L</p>
+                        <p>G = 0.07M + 0.85G + 0.10L</p>
+                        <p>L = 0.05M + 0.05G + 0.75L</p>
+                        <p>M + G + L = 1</p>
+                    </div>
+
+                    <p>
+                        Se acomodan dos ecuaciones de Markov (la tercera es redundante
+                        porque depende de las otras dos) y se agrega la condición de que
+                        las participaciones suman 1:
+                    </p>
+
+                    <div class="paso">
+                        <p>0.12M − 0.10G − 0.15L = 0</p>
+                        <p>−0.07M + 0.15G − 0.10L = 0</p>
+                        <p>M + G + L = 1</p>
+                    </div>
+
+                    <p><strong>Sistema 3×3 para ingresar en la calculadora:</strong></p>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Ecuación</th><th>Coef. M</th><th>Coef. G</th><th>Coef. L</th><th>Resultado</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>0.12</td><td>−0.10</td><td>−0.15</td><td>0</td></tr>
+                            <tr><td>2</td><td>−0.07</td><td>0.15</td><td>−0.10</td><td>0</td></tr>
+                            <tr><td>3</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>Al resolver el sistema, se obtiene:</p>
+
+                    <table class="tabla-resultados tabla-final">
+                        <thead>
+                            <tr><th>Cadena</th><th>Estado estable</th><th>Porcentaje</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Maxi Palí</td><td>0.4924</td><td class="resultado-destacado">49.24%</td></tr>
+                            <tr><td>Megasuper</td><td>0.3409</td><td class="resultado-destacado">34.09%</td></tr>
+                            <tr><td>Locales</td><td>0.1667</td><td class="resultado-destacado">16.67%</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        Se usan solo dos ecuaciones de Markov porque las tres dependen
+                        entre sí; la tercera se reemplaza por M + G + L = 1 para asegurar
+                        que el resultado represente el 100% del mercado.
+                    </p>
+
+                    <h4>7. Interpretación final</h4>
+
+                    <p>
+                        En los dos primeros períodos, Maxi Palí aumenta su participación
+                        de 45.00% a 46.10% y luego a 46.91%. Megasuper baja levemente de
+                        35.00% a 34.79%, mientras que los comercios locales bajan de
+                        20.00% a 18.30%.
+                    </p>
+
+                    <p>
+                        El estado estable indica que, si las probabilidades de
+                        permanencia y cambio se mantienen iguales en el tiempo, el
+                        mercado tendería a estabilizarse aproximadamente en
+                        <strong>49.24%</strong> para Maxi Palí, <strong>34.09%</strong>
+                        para Megasuper y <strong>16.67%</strong> para los locales.
+                    </p>
+
+                    <p>
+                        Por lo tanto, la cadena que gana en el largo plazo es Maxi Palí,
+                        porque alcanza la mayor participación de mercado. Megasuper
+                        debería enfocarse en mejorar su retención de clientes y reducir
+                        la fuga hacia Maxi Palí mediante promociones, mejores precios,
+                        servicio al cliente, variedad de productos y programas de
+                        fidelización.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- TEMA: MODELOS DE TRANSPORTE -->
+
+            <section id="tema-transporte" class="seccion tema-detalle">
+
+                <button class="btn-volver" onclick="mostrarSeccion('metodos')">
+                    ← Volver a Métodos
+                </button>
+
+                <h2 class="titulo-seccion">🚚 Modelos de Transporte</h2>
+
+                <div class="card resumen-ejecutivo">
+
+                    <h3>Resumen Ejecutivo</h3>
+
+                    <p>
+                        Los Modelos de Transporte resuelven el problema de distribuir
+                        un producto desde varios <strong>orígenes</strong> (fábricas,
+                        bodegas, centros de acopio) con una oferta limitada, hacia
+                        varios <strong>destinos</strong> con una demanda específica,
+                        buscando el costo total de envío más bajo posible (o la
+                        ganancia más alta, en problemas de maximización).
+                    </p>
+
+                    <p>
+                        Un requisito técnico clave es que el modelo esté
+                        <strong>balanceado</strong>: la oferta total debe ser igual a
+                        la demanda total. Si no coinciden, se agrega una fila o columna
+                        ficticia con costo cero para equilibrarlo. Para encontrar una
+                        primera solución factible y de buena calidad se usa un método
+                        heurístico llamado <strong>Aproximación de Vogel</strong>, que
+                        calcula una "penalización" en cada fila y columna (la
+                        diferencia entre los dos costos más bajos) y asigna primero las
+                        cantidades donde esa penalización es mayor, porque ahí es donde
+                        más se pierde si no se decide bien.
+                    </p>
+
+                    <p>
+                        Una vez obtenida esa solución inicial, se verifica si ya es la
+                        óptima mediante el <strong>método de salto de piedra en
+                        piedra</strong> (stepping stone): por cada celda vacía se traza
+                        un circuito cerrado pasando por celdas con asignación,
+                        alternando signos (+, −, +, −), y se suma el resultado. En un
+                        problema de minimización, si algún circuito da un valor
+                        negativo, existe una ruta mejor y la solución debe ajustarse;
+                        si todos los circuitos dan cero o positivo, la solución ya es
+                        óptima.
+                    </p>
+
+                </div>
+
+                <div class="card ejercicio">
+
+                    <h3>Ejercicio Resuelto: Distribución de Cajas de Fruta — Cooperativa Sabores del Caribe</h3>
+
+                    <p>
+                        La cooperativa agrícola Sabores del Caribe acopia fruta en tres
+                        centros de la zona norte y caribe del país, y debe distribuirla
+                        hacia cuatro ferias y puntos de venta. Se busca la
+                        distribución que minimice el costo total de transporte.
+                    </p>
+
+                    <h4>1. Datos del problema</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Centro de acopio (origen)</th><th>Oferta (cajas)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>O1 — Guápiles</td><td>100</td></tr>
+                            <tr><td>O2 — Siquirres</td><td>120</td></tr>
+                            <tr><td>O3 — Sarapiquí</td><td>130</td></tr>
+                            <tr><td><strong>Oferta total</strong></td><td class="resultado-destacado">350</td></tr>
+                        </tbody>
+                    </table>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Feria / destino</th><th>Demanda (cajas)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>D1 — San José</td><td>90</td></tr>
+                            <tr><td>D2 — Heredia</td><td>80</td></tr>
+                            <tr><td>D3 — Cartago</td><td>70</td></tr>
+                            <tr><td>D4 — Puerto Limón (exportación)</td><td>110</td></tr>
+                            <tr><td><strong>Demanda total</strong></td><td class="resultado-destacado">350</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        Oferta total (350) = Demanda total (350) → el modelo está
+                        balanceado, no se necesitan filas ni columnas ficticias.
+                    </p>
+
+                    <p><strong>Matriz de costos</strong> (dólares por caja transportada):</p>
+
+                    <table class="tabla-resultados tabla-matriz">
+                        <thead>
+                            <tr><th>Origen / Destino</th><th>D1 San José</th><th>D2 Heredia</th><th>D3 Cartago</th><th>D4 Limón</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>O1 Guápiles</td><td>8</td><td>6</td><td>10</td><td>9</td></tr>
+                            <tr><td>O2 Siquirres</td><td>9</td><td>12</td><td>13</td><td>7</td></tr>
+                            <tr><td>O3 Sarapiquí</td><td>14</td><td>9</td><td>16</td><td>5</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>2. Aproximación de Vogel — Iteración 1</h4>
+
+                    <p>
+                        Se calcula la penalización de cada fila y columna restando los
+                        dos costos más bajos:
+                    </p>
+
+                    <div class="paso">
+                        <p>Filas → O1: 8−6=2 · O2: 9−7=2 · O3: 9−5=<strong>4</strong></p>
+                        <p>Columnas → D1: 9−8=1 · D2: 9−6=3 · D3: 13−10=3 · D4: 7−5=2</p>
+                    </div>
+
+                    <p>
+                        La penalización más alta es 4, en la fila O3 (Sarapiquí). Dentro
+                        de esa fila, el costo más bajo es hacia D4 (Limón, $5). Se
+                        asigna lo máximo posible: min(130, 110) = 110.
+                    </p>
+
+                    <p class="nota">
+                        Asignación: O3 → D4 = 110 cajas. Demanda de D4 queda en 0 (se
+                        cierra la columna). Oferta de O3 baja de 130 a 20.
+                    </p>
+
+                    <h4>3. Iteración 2</h4>
+
+                    <div class="paso">
+                        <p>Filas → O1: 8−6=2 · O2: 9−7=3 · O3: 14−9=<strong>5</strong></p>
+                        <p>Columnas → D1: 1 · D2: 3 · D3: 3</p>
+                    </div>
+
+                    <p>
+                        La mayor penalización es 5, en O3. Su costo más bajo restante
+                        es D2 (Heredia, $9). Se asigna min(20, 80) = 20.
+                    </p>
+
+                    <p class="nota">
+                        Asignación: O3 → D2 = 20 cajas. Oferta de O3 llega a 0 (se
+                        cierra la fila). Demanda de D2 baja de 80 a 60.
+                    </p>
+
+                    <h4>4. Iteración 3</h4>
+
+                    <div class="paso">
+                        <p>Filas → O1: 8−6=2 · O2: 9−7=3</p>
+                        <p>Columnas → D1: 1 · D2: 12−6=<strong>6</strong> · D3: 3</p>
+                    </div>
+
+                    <p>
+                        Ahora la mayor penalización es 6, en la columna D2. Dentro de
+                        esa columna, el costo más bajo activo es O1 ($6). Se asigna
+                        min(100, 60) = 60.
+                    </p>
+
+                    <p class="nota">
+                        Asignación: O1 → D2 = 60 cajas. Demanda de D2 llega a 0 (se
+                        cierra la columna). Oferta de O1 baja de 100 a 40.
+                    </p>
+
+                    <h4>5. Iteración 4</h4>
+
+                    <div class="paso">
+                        <p>Filas → O1: 10−8=2 · O2: 13−9=<strong>4</strong></p>
+                        <p>Columnas → D1: 1 · D3: 3</p>
+                    </div>
+
+                    <p>
+                        La mayor penalización es 4, en O2. Su costo más bajo activo es
+                        D1 (San José, $9). Se asigna min(120, 90) = 90.
+                    </p>
+
+                    <p class="nota">
+                        Asignación: O2 → D1 = 90 cajas. Demanda de D1 llega a 0 (se
+                        cierra la columna). Oferta de O2 baja de 120 a 30.
+                    </p>
+
+                    <h4>6. Asignación final</h4>
+
+                    <p>
+                        Solo queda activa la columna D3 (Cartago, demanda 70) y las
+                        filas O1 (40) y O2 (30). Como ya no hay opciones que comparar,
+                        se reparte directamente: O2 → D3 = 30 (agota la oferta de O2) y
+                        O1 → D3 = 40 (cubre exactamente el resto de la demanda de D3).
+                    </p>
+
+                    <table class="tabla-resultados tabla-final">
+                        <thead>
+                            <tr><th>Ruta</th><th>Cajas</th><th>Costo unitario</th><th>Subtotal</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>O1 → D2 (Guápiles–Heredia)</td><td>60</td><td>$6</td><td>$360</td></tr>
+                            <tr><td>O1 → D3 (Guápiles–Cartago)</td><td>40</td><td>$10</td><td>$400</td></tr>
+                            <tr><td>O2 → D1 (Siquirres–San José)</td><td>90</td><td>$9</td><td>$810</td></tr>
+                            <tr><td>O2 → D3 (Siquirres–Cartago)</td><td>30</td><td>$13</td><td>$390</td></tr>
+                            <tr><td>O3 → D2 (Sarapiquí–Heredia)</td><td>20</td><td>$9</td><td>$180</td></tr>
+                            <tr><td>O3 → D4 (Sarapiquí–Limón)</td><td>110</td><td>$5</td><td>$550</td></tr>
+                            <tr><td colspan="3"><strong>Costo total</strong></td><td class="resultado-destacado">$2,690</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>7. Verificación con salto de piedra en piedra</h4>
+
+                    <p>
+                        Para confirmar que la solución de Vogel ya es la óptima, se
+                        evalúan las celdas vacías trazando un circuito cerrado que
+                        alterna signos (+, −, +, −) entre celdas con asignación. Como
+                        este es un problema de <strong>minimización</strong>, un
+                        resultado negativo indicaría que existe una ruta más barata; un
+                        resultado positivo o cero confirma que no conviene cambiar.
+                    </p>
+
+                    <div class="paso">
+                        <p>Celda vacía O1–D1: circuito O1D1(+) → O2D1(−) → O2D3(+) → O1D3(−)</p>
+                        <p>8 − 9 + 13 − 10 = <strong>+2</strong> (positivo, no mejora)</p>
+                    </div>
+
+                    <div class="paso">
+                        <p>Celda vacía O3–D1: circuito O3D1(+) → O3D2(−) → O1D2(+) → O1D3(−) → O2D3(+) → O2D1(−)</p>
+                        <p>14 − 9 + 6 − 10 + 13 − 9 = <strong>+5</strong> (positivo, no mejora)</p>
+                    </div>
+
+                    <p class="nota">
+                        Al evaluar de la misma forma las celdas restantes (O1–D4,
+                        O2–D2, O2–D4 y O3–D3) todas arrojan resultados positivos, por
+                        lo que ningún cambio de ruta reduce el costo total: la solución
+                        de $2,690 es el óptimo absoluto.
+                    </p>
+
+                    <h4>8. Interpretación final</h4>
+
+                    <p>
+                        La distribución óptima reparte la oferta de Guápiles entre
+                        Heredia y Cartago, la de Siquirres entre San José y Cartago, y
+                        la de Sarapiquí entre Heredia y la exportación por Puerto
+                        Limón, alcanzando un costo total de transporte de
+                        <strong>$2,690</strong>. Ninguna ruta alternativa —verificada
+                        mediante el método de salto de piedra en piedra— logra reducir
+                        ese costo, por lo que la cooperativa puede implementar este
+                        plan de distribución con la certeza de que es matemáticamente
+                        el más económico posible.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- TEMA: CONTROL ESTADÍSTICO -->
+
+            <section id="tema-control" class="seccion tema-detalle">
+
+                <button class="btn-volver" onclick="mostrarSeccion('metodos')">
+                    ← Volver a Métodos
+                </button>
+
+                <h2 class="titulo-seccion">📊 Control Estadístico</h2>
+
+                <div class="card resumen-ejecutivo">
+
+                    <h3>Resumen Ejecutivo</h3>
+
+                    <p>
+                        El Control Estadístico de Procesos (SPC) usa gráficos de
+                        control para monitorear si un proceso se mantiene estable en
+                        el tiempo, distinguiendo la variación natural del proceso
+                        (causas comunes) de variaciones anormales (causas especiales)
+                        que requieren investigación. Los gráficos más usados son el
+                        gráfico <strong>X̄</strong> (medias de subgrupos) y el gráfico
+                        <strong>R</strong> (rangos), que se construyen juntos porque
+                        uno controla la tendencia central del proceso y el otro su
+                        variabilidad.
+                    </p>
+
+                    <p>
+                        Para construirlos se calculan dos líneas centrales: la gran
+                        media X̄̄ (promedio de todas las medias de subgrupo) y el rango
+                        promedio R̄ (promedio de todos los rangos). A partir de estas,
+                        y usando constantes estadísticas tabuladas según el tamaño de
+                        subgrupo (A₂, D₃, D₄), se obtienen los límites de control
+                        superior e inferior. Si todos los puntos caen dentro de esos
+                        límites, el proceso está <strong>bajo control estadístico</strong>;
+                        si algún punto cae fuera, existe una causa especial que debe
+                        investigarse.
+                    </p>
+
+                </div>
+
+                <div class="card ejercicio">
+
+                    <h3>Ejercicio Resuelto: Corte de Precisión de Alambre</h3>
+
+                    <p>
+                        El muestreo de cuatro piezas de precisión para corte de
+                        alambre (empleadas en el ensamble de computadoras) se realizó
+                        cada hora durante las últimas 24 horas, registrando la media
+                        (X̄) y el rango (R) de cada muestra. Se pide construir los
+                        gráficos X̄ y R, calcular sus límites de control y determinar
+                        si el proceso está bajo control.
+                    </p>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Hora</th><th>X̄</th><th>R</th><th>Hora</th><th>X̄</th><th>R</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>3.25</td><td>0.71</td><td>13</td><td>3.11</td><td>0.85</td></tr>
+                            <tr><td>2</td><td>3.11</td><td>1.18</td><td>14</td><td>2.83</td><td>1.31</td></tr>
+                            <tr><td>3</td><td>3.22</td><td>1.43</td><td>15</td><td>3.12</td><td>1.06</td></tr>
+                            <tr><td>4</td><td>3.39</td><td>1.26</td><td>16</td><td>2.86</td><td>0.50</td></tr>
+                            <tr><td>5</td><td>3.07</td><td>1.17</td><td>17</td><td>2.86</td><td>1.43</td></tr>
+                            <tr><td>6</td><td>2.86</td><td>0.32</td><td>18</td><td>2.74</td><td>1.29</td></tr>
+                            <tr><td>7</td><td>3.05</td><td>0.53</td><td>19</td><td>3.13</td><td>1.41</td></tr>
+                            <tr><td>8</td><td>2.65</td><td>1.13</td><td>20</td><td>2.89</td><td>1.09</td></tr>
+                            <tr><td>9</td><td>3.02</td><td>0.71</td><td>21</td><td>2.65</td><td>1.08</td></tr>
+                            <tr><td>10</td><td>2.85</td><td>1.33</td><td>22</td><td>3.28</td><td>0.46</td></tr>
+                            <tr><td>11</td><td>2.83</td><td>1.17</td><td>23</td><td>2.94</td><td>1.58</td></tr>
+                            <tr><td>12</td><td>2.97</td><td>0.40</td><td>24</td><td>2.64</td><td>0.97</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>1. Datos y constantes</h4>
+
+                    <div class="paso">
+                        <p>Muestras: 24 horas · Tamaño de subgrupo: n = 4</p>
+                        <p>Constantes para n = 4: A₂ = 0.729 · D₃ = 0 · D₄ = 2.282</p>
+                    </div>
+
+                    <h4>2. Cálculo de la gran media X̄̄</h4>
+
+                    <div class="formula-box">X̄̄ = ΣX̄ / 24</div>
+
+                    <div class="paso">
+                        <p>ΣX̄ = 71.32</p>
+                        <p>X̄̄ = 71.32 / 24 = <strong>2.972</strong></p>
+                    </div>
+
+                    <p class="nota">
+                        La gran media representa el promedio general del proceso y es
+                        la línea central del gráfico X̄: LC<sub>X̄</sub> = 2.972
+                    </p>
+
+                    <h4>3. Cálculo del rango promedio R̄</h4>
+
+                    <div class="formula-box">R̄ = ΣR / 24</div>
+
+                    <div class="paso">
+                        <p>ΣR = 24.37</p>
+                        <p>R̄ = 24.37 / 24 = <strong>1.015</strong></p>
+                    </div>
+
+                    <p class="nota">
+                        El rango promedio representa la variabilidad promedio del
+                        proceso y es la línea central del gráfico R: LC<sub>R</sub> = 1.015
+                    </p>
+
+                    <h4>4. Límites del gráfico X̄</h4>
+
+                    <div class="paso">
+                        <p>LCS<sub>X̄</sub> = X̄̄ + A₂R̄ = 2.972 + 0.729(1.015) = <strong>3.712</strong></p>
+                        <p>LC<sub>X̄</sub> = X̄̄ = <strong>2.972</strong></p>
+                        <p>LCI<sub>X̄</sub> = X̄̄ − A₂R̄ = 2.972 − 0.729(1.015) = <strong>2.231</strong></p>
+                    </div>
+
+                    <h4>5. Límites del gráfico R</h4>
+
+                    <div class="paso">
+                        <p>LCS<sub>R</sub> = D₄R̄ = 2.282(1.015) = <strong>2.317</strong></p>
+                        <p>LC<sub>R</sub> = R̄ = <strong>1.015</strong></p>
+                        <p>LCI<sub>R</sub> = D₃R̄ = 0(1.015) = <strong>0</strong></p>
+                    </div>
+
+                    <table class="tabla-resultados tabla-final">
+                        <thead>
+                            <tr><th>Gráfico</th><th>LCI</th><th>LC</th><th>LCS</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>X̄</td><td class="resultado-destacado">2.231</td><td>2.972</td><td class="resultado-destacado">3.712</td></tr>
+                            <tr><td>R</td><td class="resultado-destacado">0.000</td><td>1.015</td><td class="resultado-destacado">2.317</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>6. Verificación de control</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Gráfico</th><th>Valor mínimo observado</th><th>Valor máximo observado</th><th>¿Dentro de límites?</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>X̄</td><td>2.64</td><td>3.39</td><td class="resultado-destacado">Sí ✓</td></tr>
+                            <tr><td>R</td><td>0.32</td><td>1.58</td><td class="resultado-destacado">Sí ✓</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        Como ningún punto de la tabla cae fuera de los límites
+                        2.231 ≤ X̄ ≤ 3.712 ni de los límites 0 ≤ R ≤ 2.317, no es
+                        necesario eliminar ninguna muestra ni recalcular los límites.
+                    </p>
+
+                    <h4>7. Interpretación final</h4>
+
+                    <p>
+                        Al construir los gráficos X̄ y R, todos los valores se
+                        encuentran dentro de sus respectivos límites de control. Esto
+                        significa que el proceso de corte de precisión de alambre se
+                        encuentra <strong>bajo control estadístico</strong>: las
+                        variaciones observadas son normales del proceso (causas
+                        comunes) y no se identifican causas especiales que estén
+                        afectando la producción.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- TEMA: MODELOS DE REDES -->
+
+            <section id="tema-redes" class="seccion tema-detalle">
+
+                <button class="btn-volver" onclick="mostrarSeccion('metodos')">
+                    ← Volver a Métodos
+                </button>
+
+                <h2 class="titulo-seccion">🕸️ Modelos de Redes</h2>
+
+                <div class="card resumen-ejecutivo">
+
+                    <h3>Resumen Ejecutivo</h3>
+
+                    <p>
+                        Los Modelos de Redes representan un sistema mediante un grafo
+                        compuesto por <strong>nodos</strong> (puntos de interés, como
+                        ciudades o bodegas) y <strong>arcos</strong> o conexiones entre
+                        ellos, cada uno con un peso o costo asociado (distancia,
+                        tiempo, dinero). A partir de esta representación existen
+                        distintas técnicas según lo que se quiera optimizar.
+                    </p>
+
+                    <p>
+                        La técnica de la <strong>ruta más corta</strong> (Algoritmo de
+                        Dijkstra) busca el camino de menor costo total entre
+                        únicamente dos nodos específicos: un origen y un destino,
+                        ignorando el resto de la red. En cambio, el <strong>árbol de
+                        expansión mínima</strong> (Algoritmo de Kruskal o Prim) busca
+                        conectar <em>todos</em> los nodos de la red entre sí, usando el
+                        menor costo total posible y sin formar ciclos cerrados; es
+                        el modelo típico para diseñar infraestructura (cableado,
+                        tuberías, carreteras) que debe llegar a todos los puntos al
+                        menor costo, no solo a uno.
+                    </p>
+
+                </div>
+
+                <div class="card ejercicio">
+
+                    <h3>Ejercicio Resuelto: Ruta de Transporte Limón–San José</h3>
+
+                    <p>
+                        Una empresa de transporte debe enviar mercancía desde el
+                        Puerto de Limón (A) hasta el Centro de Distribución en San
+                        José (F). Las conexiones entre los puntos son bidireccionales
+                        y los números representan la distancia en kilómetros entre
+                        cada par de nodos.
+                    </p>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Conexión</th><th>Distancia (km)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>A – B</td><td>7</td></tr>
+                            <tr><td>A – C</td><td>5</td></tr>
+                            <tr><td>A – D</td><td>6</td></tr>
+                            <tr><td>B – C</td><td>2</td></tr>
+                            <tr><td>B – E</td><td>4</td></tr>
+                            <tr><td>C – D</td><td>3</td></tr>
+                            <tr><td>C – E</td><td>6</td></tr>
+                            <tr><td>C – F</td><td>4</td></tr>
+                            <tr><td>D – F</td><td>8</td></tr>
+                            <tr><td>E – F</td><td>3</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="red-diagrama">
+                        <svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg">
+
+                            <line x1="70" y1="230" x2="250" y2="90"  stroke="#e3b8cf" stroke-width="3"/>
+                            <line x1="70" y1="230" x2="420" y2="230" stroke="#e3b8cf" stroke-width="3"/>
+                            <line x1="70" y1="230" x2="250" y2="370" stroke="#e3b8cf" stroke-width="3"/>
+                            <line x1="250" y1="90"  x2="420" y2="230" stroke="#e3b8cf" stroke-width="3"/>
+                            <line x1="250" y1="90"  x2="590" y2="90"  stroke="#e3b8cf" stroke-width="3"/>
+                            <line x1="420" y1="230" x2="250" y2="370" stroke="#e3b8cf" stroke-width="3"/>
+                            <line x1="420" y1="230" x2="590" y2="90"  stroke="#e3b8cf" stroke-width="3"/>
+                            <line x1="420" y1="230" x2="610" y2="230" stroke="#e3b8cf" stroke-width="3"/>
+                            <line x1="250" y1="370" x2="610" y2="230" stroke="#e3b8cf" stroke-width="3"/>
+                            <line x1="590" y1="90"  x2="610" y2="230" stroke="#e3b8cf" stroke-width="3"/>
+
+                            <g><rect x="148" y="150" width="24" height="20" rx="6" fill="white"/><text x="160" y="165" text-anchor="middle" font-size="13" font-weight="bold" fill="#a83572">7</text></g>
+                            <g><rect x="233" y="200" width="24" height="20" rx="6" fill="white"/><text x="245" y="215" text-anchor="middle" font-size="13" font-weight="bold" fill="#a83572">5</text></g>
+                            <g><rect x="148" y="290" width="24" height="20" rx="6" fill="white"/><text x="160" y="305" text-anchor="middle" font-size="13" font-weight="bold" fill="#a83572">6</text></g>
+                            <g><rect x="323" y="150" width="24" height="20" rx="6" fill="white"/><text x="335" y="165" text-anchor="middle" font-size="13" font-weight="bold" fill="#a83572">2</text></g>
+                            <g><rect x="408" y="62"  width="24" height="20" rx="6" fill="white"/><text x="420" y="77"  text-anchor="middle" font-size="13" font-weight="bold" fill="#a83572">4</text></g>
+                            <g><rect x="323" y="290" width="24" height="20" rx="6" fill="white"/><text x="335" y="305" text-anchor="middle" font-size="13" font-weight="bold" fill="#a83572">3</text></g>
+                            <g><rect x="493" y="150" width="24" height="20" rx="6" fill="white"/><text x="505" y="165" text-anchor="middle" font-size="13" font-weight="bold" fill="#a83572">6</text></g>
+                            <g><rect x="503" y="202" width="24" height="20" rx="6" fill="white"/><text x="515" y="217" text-anchor="middle" font-size="13" font-weight="bold" fill="#a83572">4</text></g>
+                            <g><rect x="418" y="290" width="24" height="20" rx="6" fill="white"/><text x="430" y="305" text-anchor="middle" font-size="13" font-weight="bold" fill="#a83572">8</text></g>
+                            <g><rect x="603" y="150" width="24" height="20" rx="6" fill="white"/><text x="615" y="165" text-anchor="middle" font-size="13" font-weight="bold" fill="#a83572">3</text></g>
+
+                            <circle cx="70" cy="230" r="26" fill="#2ecc71" stroke="white" stroke-width="3"/>
+                            <text x="70" y="237" text-anchor="middle" font-size="18" font-weight="bold" fill="white">A</text>
+                            <text x="70" y="270" text-anchor="middle" font-size="11" fill="#7a657d">Puerto Limón</text>
+
+                            <circle cx="250" cy="90" r="26" fill="white" stroke="#d44b93" stroke-width="3"/>
+                            <text x="250" y="97" text-anchor="middle" font-size="18" font-weight="bold" fill="#a83572">B</text>
+
+                            <circle cx="420" cy="230" r="26" fill="white" stroke="#d44b93" stroke-width="3"/>
+                            <text x="420" y="237" text-anchor="middle" font-size="18" font-weight="bold" fill="#a83572">C</text>
+
+                            <circle cx="250" cy="370" r="26" fill="white" stroke="#d44b93" stroke-width="3"/>
+                            <text x="250" y="377" text-anchor="middle" font-size="18" font-weight="bold" fill="#a83572">D</text>
+
+                            <circle cx="590" cy="90" r="26" fill="white" stroke="#d44b93" stroke-width="3"/>
+                            <text x="590" y="97" text-anchor="middle" font-size="18" font-weight="bold" fill="#a83572">E</text>
+
+                            <circle cx="610" cy="230" r="26" fill="#d44b93" stroke="white" stroke-width="3"/>
+                            <text x="610" y="237" text-anchor="middle" font-size="18" font-weight="bold" fill="white">F</text>
+                            <text x="610" y="270" text-anchor="middle" font-size="11" fill="#7a657d">Centro Distrib.</text>
+
+                        </svg>
+                    </div>
+
+                    <p class="nota">
+                        Las rutas son bidireccionales: se puede viajar en ambos
+                        sentidos por cada conexión.
+                    </p>
+
+                    <h4>Parte 1 — Ruta Más Corta (Algoritmo de Dijkstra)</h4>
+
+                    <p>
+                        <strong>Objetivo:</strong> encontrar el camino más eficiente
+                        exclusivamente entre el origen (A) y el destino (F), ignorando
+                        los nodos que no se necesiten visitar.
+                    </p>
+
+                    <div class="paso">
+                        <p><strong>1. Inicio en A</strong> (distancia acumulada: 0 km).</p>
+                        <p>Caminos de salida: hacia B = 7 km · hacia C = 5 km · hacia D = 6 km.</p>
+                        <p>Decisión: nos movemos al nodo C (el más corto). Acumulado: <strong>5 km</strong>.</p>
+                    </div>
+
+                    <div class="paso">
+                        <p><strong>2. Evaluación desde C</strong> (ya llevamos 5 km):</p>
+                        <p>Regresar a B: 5 + 2 = 7 km (igual que la ruta directa A–B, no se gana nada).</p>
+                        <p>Ir a D: 5 + 3 = 8 km.</p>
+                        <p>Ir a E: 5 + 6 = 11 km.</p>
+                        <p>Ir a F (destino): 5 + 4 = <strong>9 km</strong> — ruta potencial encontrada.</p>
+                    </div>
+
+                    <p><strong>3. Comprobación de rutas alternativas completas:</strong></p>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Ruta alternativa</th><th>Cálculo</th><th>Total</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>A → C → F</td><td>5 + 4</td><td class="resultado-destacado">9 km</td></tr>
+                            <tr><td>A → D → F</td><td>6 + 8</td><td>14 km</td></tr>
+                            <tr><td>A → B → E → F</td><td>7 + 4 + 3</td><td>14 km</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        Las rutas por D y por B quedan descartadas porque duplican el
+                        costo de la ruta por C.
+                    </p>
+
+                    <table class="tabla-resultados tabla-final">
+                        <thead>
+                            <tr><th>Resultado</th><th>Valor</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Ruta más corta</td><td class="resultado-destacado">A → C → F</td></tr>
+                            <tr><td>Distancia total</td><td class="resultado-destacado">9 km</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Parte 2 — Árbol de Expansión Mínima (Algoritmo de Kruskal)</h4>
+
+                    <p>
+                        <strong>Objetivo:</strong> conectar <em>todos</em> los nodos de
+                        la red (A, B, C, D, E, F) usando la menor distancia total
+                        posible, sin formar ciclos cerrados.
+                    </p>
+
+                    <div class="paso">
+                        <p><strong>1.</strong> Conexión más corta de todo el mapa: B–C (2 km). Se construye. Acumulado: <strong>2 km</strong>.</p>
+                        <p><strong>2.</strong> Empate a 3 km entre C–D y E–F: se construyen ambas, ya que ninguna forma ciclo. Acumulado: 2 + 3 + 3 = <strong>8 km</strong>. (Grupos: B-C-D por un lado, E-F por otro).</p>
+                        <p><strong>3.</strong> Empate a 4 km entre B–E y C–F: se elige C–F porque conecta los dos grupos separados. Acumulado: 8 + 4 = <strong>12 km</strong>. B–E se descarta porque formaría un ciclo cerrado B-C-F-E.</p>
+                        <p><strong>4.</strong> Falta conectar el origen A: opciones A–C (5), A–D (6), A–B (7). Se elige la más corta, A–C. Acumulado: 12 + 5 = <strong>17 km</strong>.</p>
+                        <p><strong>5.</strong> Verificación: los 6 nodos quedan conectados y no hay ciclos cerrados.</p>
+                    </div>
+
+                    <table class="tabla-resultados tabla-final">
+                        <thead>
+                            <tr><th>Conexión construida</th><th>Distancia (km)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>B – C</td><td>2</td></tr>
+                            <tr><td>C – D</td><td>3</td></tr>
+                            <tr><td>E – F</td><td>3</td></tr>
+                            <tr><td>C – F</td><td>4</td></tr>
+                            <tr><td>A – C</td><td>5</td></tr>
+                            <tr><td><strong>Distancia total</strong></td><td class="resultado-destacado">17 km</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        La ruta más corta entre A y F usa solo 9 km porque optimiza un
+                        único trayecto, mientras que el árbol de expansión mínima
+                        necesita 17 km porque su objetivo es distinto: garantizar que
+                        los seis puntos de la red queden conectados entre sí al menor
+                        costo posible, no solo unir A con F.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- TEMA: MODELADO DE SIMULACIÓN -->
+
+            <section id="tema-simulacion" class="seccion tema-detalle">
+
+                <button class="btn-volver" onclick="mostrarSeccion('metodos')">
+                    ← Volver a Métodos
+                </button>
+
+                <h2 class="titulo-seccion">🎲 Modelado de Simulación</h2>
+
+                <div class="card resumen-ejecutivo">
+
+                    <h3>Resumen Ejecutivo</h3>
+
+                    <p>
+                        La Simulación Monte Carlo es una técnica que permite estudiar el
+                        comportamiento de un sistema cuando este involucra variables
+                        aleatorias de las que se conoce su distribución histórica de
+                        probabilidad, pero no el resultado exacto de cada evento futuro.
+                        A partir de un historial de datos se calcula la probabilidad
+                        individual P(x) de cada valor posible, su probabilidad acumulada
+                        y, con ello, se construyen rangos numéricos del 1 al 100
+                        proporcionales a cada probabilidad.
+                    </p>
+
+                    <p>
+                        Estos rangos permiten "traducir" una secuencia de números
+                        aleatorios en una secuencia de eventos simulados: cada número
+                        aleatorio cae dentro de un rango, y ese rango determina qué
+                        valor ocurrió en ese evento. Al simular un número suficiente de
+                        eventos se obtiene un <strong>promedio simulado</strong> que se
+                        compara contra el <strong>Valor Esperado Teórico</strong>
+                        E(X) = Σ(x · P(x)).
+                    </p>
+
+                    <p>
+                        La diferencia entre ambos valores no representa un error: refleja
+                        la variabilidad natural del sistema en el corto plazo, y es
+                        precisamente esa variabilidad la que la gerencia debe anticipar
+                        al planificar recursos, personal o mantenimiento.
+                    </p>
+
+                </div>
+
+                <div class="card ejercicio">
+
+                    <h3>Parte A: Problema de Colas — Tiempos de Inspección</h3>
+
+                    <p>
+                        Los contenedores seleccionados para inspección física en la
+                        Terminal de Aduanas de Limón tardan tiempos muy variables, lo que
+                        genera filas en las casetas. Se simula el tiempo de atención de
+                        los próximos 10 contenedores con base en el historial de los
+                        últimos 100 revisados.
+                    </p>
+
+                    <h4>1. Probabilidades, acumulada y rangos</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Tiempo</th><th>Frecuencia</th><th>P(x)</th><th>Acumulada</th><th>Rango</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>15 min</td><td>20</td><td>0.20</td><td>0.20</td><td>1 – 20</td></tr>
+                            <tr><td>30 min</td><td>40</td><td>0.40</td><td>0.60</td><td>21 – 60</td></tr>
+                            <tr><td>45 min</td><td>30</td><td>0.30</td><td>0.90</td><td>61 – 90</td></tr>
+                            <tr><td>60 min</td><td>10</td><td>0.10</td><td>1.00</td><td>91 – 100</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="formula-box">E(X) = 15(0.20) + 30(0.40) + 45(0.30) + 60(0.10) = 34.5 min</div>
+
+                    <h4>2. Corrida de simulación (RN dados: 25, 88, 12, 65, 92, 8, 45, 73, 19, 54)</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>RN</th><th>Resultado</th><th>RN</th><th>Resultado</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>25</td><td>30 min</td><td>8</td><td>15 min</td></tr>
+                            <tr><td>88</td><td>45 min</td><td>45</td><td>30 min</td></tr>
+                            <tr><td>12</td><td>15 min</td><td>73</td><td>45 min</td></tr>
+                            <tr><td>65</td><td>45 min</td><td>19</td><td>15 min</td></tr>
+                            <tr><td>92</td><td>60 min</td><td>54</td><td>30 min</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        Ocurrencias: 15 min (3 veces), 30 min (3 veces), 45 min (3 veces),
+                        60 min (1 vez).
+                    </p>
+
+                    <h4>3. Consolidación y conclusión</h4>
+
+                    <div class="paso">
+                        <p>Total = (3×15) + (3×30) + (3×45) + (1×60) = <strong>330</strong></p>
+                        <p>Promedio simulado = 330 / 10 = <strong>33 minutos</strong></p>
+                    </div>
+
+                    <p>
+                        El promedio simulado (33 min) es ligeramente inferior al teórico
+                        (34.5 min). Aunque ocurrió un escenario crítico de 60 minutos que
+                        saturaría la caseta, la alta frecuencia de trámites rápidos
+                        compensó y bajó el promedio general del turno.
+                    </p>
+
+                </div>
+
+                <div class="card ejercicio">
+
+                    <h3>Parte B: Control de Recursos e Insumos — Marchamos</h3>
+
+                    <p>
+                        Para sellar los contenedores tras la revisión aduanera, los
+                        oficiales utilizan marchamos de alta seguridad cuya demanda
+                        diaria es incierta. Se simula la demanda de los próximos 10 días
+                        con base en el historial de 100 días de operación.
+                    </p>
+
+                    <h4>1. Probabilidades, acumulada y rangos</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Demanda</th><th>Días</th><th>P(x)</th><th>Acumulada</th><th>Rango</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>50 u</td><td>15</td><td>0.15</td><td>0.15</td><td>1 – 15</td></tr>
+                            <tr><td>100 u</td><td>45</td><td>0.45</td><td>0.60</td><td>16 – 60</td></tr>
+                            <tr><td>150 u</td><td>30</td><td>0.30</td><td>0.90</td><td>61 – 90</td></tr>
+                            <tr><td>200 u</td><td>10</td><td>0.10</td><td>1.00</td><td>91 – 100</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="formula-box">E(X) = 50(0.15) + 100(0.45) + 150(0.30) + 200(0.10) = 117.5 unidades/día</div>
+
+                    <h4>2. Corrida de simulación (RN dados: 50, 10, 85, 42, 95, 22, 67, 5, 33, 78)</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>RN</th><th>Resultado</th><th>RN</th><th>Resultado</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>50</td><td>100 u</td><td>22</td><td>100 u</td></tr>
+                            <tr><td>10</td><td>50 u</td><td>67</td><td>150 u</td></tr>
+                            <tr><td>85</td><td>150 u</td><td>5</td><td>50 u</td></tr>
+                            <tr><td>42</td><td>100 u</td><td>33</td><td>100 u</td></tr>
+                            <tr><td>95</td><td>200 u</td><td>78</td><td>150 u</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        Ocurrencias: 50 u (2 veces), 100 u (4 veces), 150 u (3 veces),
+                        200 u (1 vez).
+                    </p>
+
+                    <h4>3. Consolidación y conclusión</h4>
+
+                    <div class="paso">
+                        <p>Total = (2×50) + (4×100) + (3×150) + (1×200) = <strong>1150</strong></p>
+                        <p>Promedio simulado = 1150 / 10 = <strong>115 unidades diarias</strong></p>
+                    </div>
+
+                    <p>
+                        El promedio simulado (115) se acerca al teórico (117.5). Sin
+                        embargo, planificar el stock solo con la media teórica habría
+                        provocado escasez durante 4 de los 10 días simulados (cuando la
+                        demanda subió a 150 o 200), lo que justifica mantener un
+                        inventario de seguridad.
+                    </p>
+
+                </div>
+
+                <div class="card ejercicio">
+
+                    <h3>Parte C: Política de Mantenimiento — Escáner de Rayos X</h3>
+
+                    <p>
+                        El escáner de rayos X sufre averías mecánicas periódicas que
+                        paralizan las inspecciones. Se simula el tiempo de
+                        funcionamiento continuo útil antes de colapsar durante los
+                        próximos 10 ciclos.
+                    </p>
+
+                    <h4>1. Probabilidades, acumulada y rangos</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Días útiles</th><th>Fallas</th><th>P(x)</th><th>Acumulada</th><th>Rango</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>10 días</td><td>30</td><td>0.30</td><td>0.30</td><td>1 – 30</td></tr>
+                            <tr><td>20 días</td><td>40</td><td>0.40</td><td>0.70</td><td>31 – 70</td></tr>
+                            <tr><td>30 días</td><td>20</td><td>0.20</td><td>0.90</td><td>71 – 90</td></tr>
+                            <tr><td>40 días</td><td>10</td><td>0.10</td><td>1.00</td><td>91 – 100</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="formula-box">E(X) = 10(0.30) + 20(0.40) + 30(0.20) + 40(0.10) = 21 días útiles</div>
+
+                    <h4>2. Corrida de simulación (RN dados: 75, 18, 55, 32, 91, 4, 61, 89, 27, 49)</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>RN</th><th>Resultado</th><th>RN</th><th>Resultado</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>75</td><td>30 días</td><td>4</td><td>10 días</td></tr>
+                            <tr><td>18</td><td>10 días</td><td>61</td><td>20 días</td></tr>
+                            <tr><td>55</td><td>20 días</td><td>89</td><td>30 días</td></tr>
+                            <tr><td>32</td><td>20 días</td><td>27</td><td>10 días</td></tr>
+                            <tr><td>91</td><td>40 días</td><td>49</td><td>20 días</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        Ocurrencias: 10 días (3 veces), 20 días (4 veces), 30 días
+                        (2 veces), 40 días (1 vez).
+                    </p>
+
+                    <h4>3. Consolidación y conclusión</h4>
+
+                    <div class="paso">
+                        <p>Total = (3×10) + (4×20) + (2×30) + (1×40) = <strong>210</strong></p>
+                        <p>Promedio simulado = 210 / 10 = <strong>21 días útiles</strong></p>
+                    </div>
+
+                    <p>
+                        El promedio empírico (21 días) calzó exactamente con la teoría.
+                        Sin embargo, la simulación muestra que el 70% de las veces la
+                        máquina falló a los 20 días o antes: esperar al promedio de 21
+                        días para revisarla garantizaría averías constantes, lo que
+                        justifica un mantenimiento preventivo más estricto.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- TEMA: PROGRAMACIÓN -->
+
+            <section id="tema-programacion" class="seccion tema-detalle">
+
+                <button class="btn-volver" onclick="mostrarSeccion('metodos')">
+                    ← Volver a Métodos
+                </button>
+
+                <h2 class="titulo-seccion">📈 Programación</h2>
+
+                <p class="intro-submenu">
+                    Este apartado reúne tres variantes de programación resueltas
+                    en distintos talleres del curso. Elegí un ejercicio para ver
+                    su desarrollo completo:
+                </p>
+
+                <div class="grid">
+
+                    <div class="metodo-card">
+
+                        <span class="badge badge-listo">Completo</span>
+
+                        <div class="icono">🧵</div>
+
+                        <h3>Programación Entera</h3>
+
+                        <p>
+                            Producción textil con variables que deben ser
+                            números enteros.
+                        </p>
+
+                        <button onclick="mostrarSeccion('prog-entera')">
+                            Ver Ejercicio
+                        </button>
+
+                    </div>
+
+                    <div class="metodo-card">
+
+                        <span class="badge badge-listo">Completo</span>
+
+                        <div class="icono">🎯</div>
+
+                        <h3>Programación por Metas</h3>
+
+                        <p>
+                            Tres metas en orden de prioridad y desviaciones
+                            a minimizar.
+                        </p>
+
+                        <button onclick="mostrarSeccion('prog-metas')">
+                            Ver Ejercicio
+                        </button>
+
+                    </div>
+
+                    <div class="metodo-card">
+
+                        <span class="badge badge-listo">Completo</span>
+
+                        <div class="icono">📐</div>
+
+                        <h3>Programación No Lineal</h3>
+
+                        <p>
+                            Maximización de beneficio con funciones de
+                            ingreso cuadráticas.
+                        </p>
+
+                        <button onclick="mostrarSeccion('prog-nolineal')">
+                            Ver Ejercicio
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- SUBTEMA: PROGRAMACIÓN ENTERA -->
+
+            <section id="prog-entera" class="seccion tema-detalle">
+
+                <button class="btn-volver" onclick="mostrarSeccion('tema-programacion')">
+                    ← Volver a Programación
+                </button>
+
+                <h2 class="titulo-seccion">🧵 Programación Entera</h2>
+
+                <div class="card resumen-ejecutivo">
+
+                    <h3>Resumen Ejecutivo</h3>
+
+                    <p>
+                        La Programación Entera es una variante de la Programación
+                        Lineal en la que las variables de decisión están obligadas a
+                        tomar valores enteros, porque representan unidades que no se
+                        pueden fraccionar (personas, prendas, vehículos, lotes
+                        completos). El planteamiento del modelo es idéntico al de
+                        programación lineal: se definen variables de decisión, una
+                        función objetivo a maximizar o minimizar y un conjunto de
+                        restricciones de recursos.
+                    </p>
+
+                    <p>
+                        La diferencia aparece al resolver: por el método gráfico se
+                        identifica la región factible y se evalúa la función objetivo en
+                        cada vértice. Si el vértice óptimo ya tiene coordenadas enteras,
+                        esa es directamente la solución óptima entera. Si no lo son, es
+                        necesario buscar el mejor punto entero cercano dentro de la
+                        región factible (por ejemplo mediante redondeo dirigido o
+                        ramificación y acotamiento), ya que un punto fraccionario nunca
+                        es una solución válida en este tipo de problemas.
+                    </p>
+
+                   
+
+                </div>
+
+                <div class="card ejercicio">
+
+                    <h3>Ejercicio Resuelto: Planificación de Producción Textil</h3>
+
+                    <p>
+                        Un taller textil confecciona camisas y pantalones. Cada camisa
+                        deja una ganancia de $60 y cada pantalón $50. El taller quiere
+                        decidir cuántas prendas de cada tipo producir esta semana para
+                        maximizar su ganancia, sujeto a la disponibilidad de tela,
+                        tiempo de costura y botones. Como las prendas se confeccionan
+                        completas, las cantidades deben ser números enteros.
+                    </p>
+
+                    <h4>1. Variables de decisión</h4>
+
+                    <div class="paso">
+                        <p>x₁ = número de camisas a producir</p>
+                        <p>x₂ = número de pantalones a producir</p>
+                    </div>
+
+                    <h4>2. Función objetivo</h4>
+
+                    <div class="formula-box">Máx Z = 60x₁ + 50x₂</div>
+
+                    <h4>3. Restricciones</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Recurso</th><th>Por camisa</th><th>Por pantalón</th><th>Disponible</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Tela (metros)</td><td>1</td><td>2</td><td>10</td></tr>
+                            <tr><td>Tiempo (horas)</td><td>2</td><td>1</td><td>11</td></tr>
+                            <tr><td>Botones (cajas)</td><td>1</td><td>1</td><td>9</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="paso">
+                        <p>x₁ + 2x₂ ≤ 10  (tela)</p>
+                        <p>2x₁ + x₂ ≤ 11  (tiempo)</p>
+                        <p>x₁ + x₂ ≤ 9  (botones)</p>
+                        <p>x₁, x₂ ≥ 0  y enteros</p>
+                    </div>
+
+                    <h4>4. Conversión de restricciones en rectas</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Restricción</th><th>Recta</th><th>Punto en eje x₂</th><th>Punto en eje x₁</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>R1 (tela)</td><td>x₁ + 2x₂ = 10</td><td>(0, 5)</td><td>(10, 0)</td></tr>
+                            <tr><td>R2 (tiempo)</td><td>2x₁ + x₂ = 11</td><td>(0, 11)</td><td>(5.5, 0)</td></tr>
+                            <tr><td>R3 (botones)</td><td>x₁ + x₂ = 9</td><td>(0, 9)</td><td>(9, 0)</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>5. Vértices de la región factible</h4>
+
+                    <p>
+                        El vértice más importante es la intersección de tela y tiempo
+                        (R1 ∩ R2), porque son las restricciones que delimitan la parte
+                        superior de la región factible:
+                    </p>
+
+                    <div class="paso">
+                        <p>De R2: x₂ = 11 − 2x₁</p>
+                        <p>Sustituyendo en R1: x₁ + 2(11 − 2x₁) = 10</p>
+                        <p>x₁ + 22 − 4x₁ = 10 → −3x₁ = −12 → x₁ = 4</p>
+                        <p>x₂ = 11 − 2(4) = 3</p>
+                    </div>
+
+                    <p>
+                        El punto de cruce es (4, 3). Se verifica contra botones:
+                        4 + 3 = 7 ≤ 9 ✓ — el punto es factible.
+                    </p>
+
+                    <p class="nota">
+                        Vértices factibles de la región: (0, 0), (5.5, 0), (4, 3) y (0, 5).
+                    </p>
+
+                    <h4>6. Evaluación de Z en cada vértice</h4>
+
+                    <table class="tabla-resultados tabla-final">
+                        <thead>
+                            <tr><th>Vértice (x₁, x₂)</th><th>Z = 60x₁ + 50x₂</th><th>Resultado</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>(0, 0)</td><td>0</td><td>$0</td></tr>
+                            <tr><td>(5.5, 0)</td><td>60(5.5)</td><td>$330</td></tr>
+                            <tr><td>(0, 5)</td><td>50(5)</td><td>$250</td></tr>
+                            <tr><td>(4, 3)</td><td>60(4) + 50(3)</td><td class="resultado-destacado">$390</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        El mayor valor corresponde al vértice (4, 3) con $390. Como este
+                        punto de cruce ya tiene coordenadas enteras, es directamente la
+                        solución óptima entera y no se requiere ningún paso de redondeo.
+                    </p>
+
+                    <h4>7. Solución final y verificación</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Variable / Indicador</th><th>Valor óptimo</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Camisas (x₁)</td><td class="resultado-destacado">4</td></tr>
+                            <tr><td>Pantalones (x₂)</td><td class="resultado-destacado">3</td></tr>
+                            <tr><td>Ganancia total (Z)</td><td class="resultado-destacado">$390 por semana</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="paso">
+                        <p>Tela: 4 + 2(3) = 10 ≤ 10 ✓ (recurso activo, cuello de botella)</p>
+                        <p>Tiempo: 2(4) + 3 = 11 ≤ 11 ✓ (recurso activo, cuello de botella)</p>
+                        <p>Botones: 4 + 3 = 7 ≤ 9 ✓ (sobran 2 cajas)</p>
+                    </div>
+
+                    <p>
+                        El taller debe producir 4 camisas y 3 pantalones por semana, con
+                        una ganancia de $390. La tela y el tiempo de costura son los
+                        recursos que limitan la producción, pues se utilizan en su
+                        totalidad; los botones tienen holgura.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- SUBTEMA: PROGRAMACIÓN POR METAS -->
+
+            <section id="prog-metas" class="seccion tema-detalle">
+
+                <button class="btn-volver" onclick="mostrarSeccion('tema-programacion')">
+                    ← Volver a Programación
+                </button>
+
+                <h2 class="titulo-seccion">🎯 Programación por Metas</h2>
+
+                <div class="card resumen-ejecutivo">
+
+                    <h3>Resumen Ejecutivo</h3>
+
+                    <p>
+                        La Programación por Metas (Goal Programming) es una extensión
+                        de la programación lineal pensada para situaciones donde
+                        existen varios objetivos en conflicto que no pueden expresarse
+                        como una sola función a maximizar o minimizar. En lugar de
+                        buscar un óptimo único, el modelo busca acercarse lo más
+                        posible a varias metas simultáneamente, jerarquizadas según su
+                        prioridad (P1, P2, P3...).
+                    </p>
+
+                    <p>
+                        Para lograrlo, cada restricción original se convierte en una
+                        ecuación de igualdad a la que se le suman variables de
+                        <strong>desviación</strong>: d⁻ (lo que falta para alcanzar la
+                        meta) y d⁺ (lo que se excede). La función objetivo deja de
+                        maximizar ganancia o minimizar costo, y en su lugar minimiza
+                        una combinación ponderada de las desviaciones indeseadas,
+                        respetando siempre el orden de prioridad: solo se sacrifica el
+                        cumplimiento de una meta de menor prioridad si es estrictamente
+                        necesario para satisfacer una de mayor prioridad.
+                    </p>
+
+                    
+
+                </div>
+
+                <div class="card ejercicio">
+
+                    <h3>Ejercicio Resuelto: Panadería La Espiga Dorada S.A.</h3>
+
+                    <p>
+                        La panadería produce dos líneas: pan artesanal y repostería
+                        fina. La gerencia debe decidir cuántos lotes semanales producir
+                        de cada tipo, pero enfrenta tres metas en estricto orden de
+                        importancia: rentabilidad (P1), un acuerdo laboral de horas
+                        exactas (P2) y una política ambiental de consumo energético
+                        (P3).
+                    </p>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Producto</th><th>Variable</th><th>Ganancia/lote</th><th>Horas/lote</th><th>Energía/lote</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Pan artesanal</td><td>x</td><td>$30</td><td>2 h</td><td>5 kWh</td></tr>
+                            <tr><td>Repostería fina</td><td>y</td><td>$50</td><td>4 h</td><td>8 kWh</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>1. Variables y metas por prioridad</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Prioridad</th><th>Meta</th><th>Condición</th><th>Desviación a minimizar</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>P1</td><td>Rentabilidad</td><td>Alcanzar $2200</td><td>d1⁻ (faltante)</td></tr>
+                            <tr><td>P2</td><td>Horas laborales</td><td>Exactamente 160 h</td><td>d2⁻ y d2⁺ (faltante / exceso)</td></tr>
+                            <tr><td>P3</td><td>Consumo energético</td><td>No exceder 300 kWh</td><td>d3⁺ (exceso)</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>2. Restricciones estructurales (si fuera PL tradicional)</h4>
+
+                    <div class="paso">
+                        <p>30x + 50y ≥ 2200  (ganancia)</p>
+                        <p>2x + 4y = 160  (horas)</p>
+                        <p>5x + 8y ≤ 300  (energía)</p>
+                    </div>
+
+                    <h4>3. Conversión a ecuaciones de metas</h4>
+
+                    <p>
+                        Cada restricción se transforma en una igualdad sumando o
+                        restando variables de desviación:
+                    </p>
+
+                    <div class="paso">
+                        <p>30x + 50y + d1⁻ − d1⁺ = 2200</p>
+                        <p>2x + 4y + d2⁻ − d2⁺ = 160</p>
+                        <p>5x + 8y + d3⁻ − d3⁺ = 300</p>
+                    </div>
+
+                    <h4>4. Función objetivo</h4>
+
+                    <div class="formula-box">Min Z = P1(d1⁻) + P2(d2⁻ + d2⁺) + P3(d3⁺)</div>
+
+                    <h4>5. Solución manual por sustitución</h4>
+
+                    <p>
+                        Se asume que las dos metas de mayor prioridad se cumplen
+                        perfectamente (d1⁻ = d1⁺ = d2⁻ = d2⁺ = 0), dejando un sistema
+                        de dos ecuaciones:
+                    </p>
+
+                    <div class="paso">
+                        <p>3x + 5y = 220  (ganancia ÷10)</p>
+                        <p>x + 2y = 80  (horas ÷2)</p>
+                    </div>
+
+                    <div class="paso">
+                        <p>De la segunda: x = 80 − 2y</p>
+                        <p>Sustituyendo: 3(80 − 2y) + 5y = 220</p>
+                        <p>240 − 6y + 5y = 220 → 240 − 220 = 6y − 5y → y = 20</p>
+                        <p>x = 80 − 2(20) = 40</p>
+                    </div>
+
+                    <h4>6. Evaluación frente a las tres metas</h4>
+
+                    <table class="tabla-resultados tabla-final">
+                        <thead>
+                            <tr><th>Meta</th><th>Resultado real</th><th>Desviación</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>P1 — Ganancia</td><td>30(40)+50(20) = $2200</td><td class="resultado-destacado">d1⁻ = 0 ✓</td></tr>
+                            <tr><td>P2 — Horas</td><td>2(40)+4(20) = 160 h</td><td class="resultado-destacado">d2⁻ = d2⁺ = 0 ✓</td></tr>
+                            <tr><td>P3 — Energía</td><td>5(40)+8(20) = 360 kWh</td><td class="resultado-destacado">d3⁺ = 60</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        El consumo real de 360 kWh supera el límite de 300 kWh de la
+                        meta 3 en exactamente 60 kWh, por lo que la variable de exceso
+                        d3⁺ = 60. Esto se confirma con la corrida en QM for Windows
+                        (Priority 1 = 0, Priority 2 = 0, Priority 3 = 60).
+                    </p>
+
+                    <h4>7. Solución final</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Variable / Indicador</th><th>Valor</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Pan artesanal (x)</td><td class="resultado-destacado">40 lotes</td></tr>
+                            <tr><td>Repostería fina (y)</td><td class="resultado-destacado">20 lotes</td></tr>
+                            <tr><td>Exceso de energía (d3⁺)</td><td class="resultado-destacado">60 kWh</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        La asignación óptima es producir 40 lotes de pan artesanal y
+                        20 de repostería fina. Esto garantiza la rentabilidad exacta y
+                        cumple estrictamente el acuerdo laboral, pero, al ser un modelo
+                        de compromisos jerárquicos, sacrifica la meta de menor
+                        prioridad: habrá un exceso inevitable de 60 kWh por encima de
+                        la política ambiental.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- SUBTEMA: PROGRAMACIÓN NO LINEAL -->
+
+            <section id="prog-nolineal" class="seccion tema-detalle">
+
+                <button class="btn-volver" onclick="mostrarSeccion('tema-programacion')">
+                    ← Volver a Programación
+                </button>
+
+                <h2 class="titulo-seccion">📐 Programación No Lineal</h2>
+
+                <div class="card resumen-ejecutivo">
+
+                    <h3>Resumen Ejecutivo</h3>
+
+                    <p>
+                        La Programación No Lineal (PNL) se aplica cuando la función
+                        objetivo o alguna de las restricciones no pueden representarse
+                        mediante relaciones lineales; por ejemplo, cuando el ingreso o
+                        el costo cambian a una tasa variable conforme aumenta la
+                        cantidad producida (rendimientos decrecientes). A diferencia de
+                        la programación lineal, donde el óptimo siempre se ubica en un
+                        vértice de la región factible, en la PNL el punto óptimo puede
+                        ubicarse en cualquier punto interior o de la frontera, por lo
+                        que el método gráfico de vértices ya no es suficiente.
+                    </p>
+
+                    <p>
+                        Un enfoque típico de solución consiste en encontrar primero el
+                        óptimo sin restricciones mediante cálculo diferencial: se
+                        obtienen las derivadas parciales de la función objetivo
+                        respecto a cada variable, se igualan a cero y se despeja. Si el
+                        punto resultante cumple con todas las restricciones del
+                        problema, esa es directamente la solución óptima; si no las
+                        cumple, es necesario aplicar métodos más avanzados (como
+                        multiplicadores de Lagrange) para encontrar el óptimo
+                        restringido.
+                    </p>
+
+
+                </div>
+
+                <div class="card ejercicio">
+
+                    <h3>Ejercicio Resuelto: Fábrica de Productos A y B</h3>
+
+                    <p>
+                        Una fábrica produce dos productos, A y B, cuyos ingresos por
+                        venta presentan rendimientos decrecientes debido a la
+                        elasticidad de la demanda. Se busca determinar las cantidades
+                        X y Y que maximizan el beneficio total, sujeto a restricciones
+                        de horas-máquina y materia prima.
+                    </p>
+
+                    <h4>1. Datos del problema</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Producto</th><th>Ingreso por venta</th><th>Costo de producción</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>A</td><td>40x − x²</td><td>5x</td></tr>
+                            <tr><td>B</td><td>50y − 2y²</td><td>8y</td></tr>
+                        </tbody>
+                    </table>
+
+                    <div class="paso">
+                        <p>Restricción de horas-máquina: 2x + 3y ≤ 120</p>
+                        <p>Restricción de materia prima: x + 2y ≤ 80</p>
+                        <p>No negatividad: x ≥ 0, y ≥ 0</p>
+                    </div>
+
+                    <h4>2. Construcción de la función objetivo</h4>
+
+                    <div class="paso">
+                        <p>Z(x, y) = (40x − x² − 5x) + (50y − 2y² − 8y)</p>
+                    </div>
+
+                    <div class="formula-box">Z(x, y) = 35x − x² + 42y − 2y²</div>
+
+                    <h4>3. Óptimo sin restricciones (derivadas parciales)</h4>
+
+                    <div class="paso">
+                        <p>∂Z/∂x = 35 − 2x = 0 → x = 17.5</p>
+                        <p>∂Z/∂y = 42 − 4y = 0 → y = 10.5</p>
+                    </div>
+
+                    <h4>4. Verificación de factibilidad</h4>
+
+                    <table class="tabla-resultados">
+                        <thead>
+                            <tr><th>Restricción</th><th>Sustitución</th><th>¿Se cumple?</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Horas-máquina ≤ 120</td><td>2(17.5)+3(10.5) = 66.5</td><td class="resultado-destacado">✓ Sí</td></tr>
+                            <tr><td>Materia prima ≤ 80</td><td>17.5+2(10.5) = 38.5</td><td class="resultado-destacado">✓ Sí</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        Como el punto óptimo sin restricciones cumple ambas
+                        restricciones, no es necesario aplicar ningún método
+                        restringido adicional: es directamente la solución óptima del
+                        problema.
+                    </p>
+
+                    <h4>5. Beneficio máximo</h4>
+
+                    <div class="formula-box">Z* = 35(17.5) − (17.5)² + 42(10.5) − 2(10.5)² = 526.75</div>
+
+                    <h4>6. Tabla resumen de la solución</h4>
+
+                    <table class="tabla-resultados tabla-final">
+                        <thead>
+                            <tr><th>Variable / Concepto</th><th>Valor óptimo</th><th>Interpretación</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>x (Producto A)</td><td class="resultado-destacado">17.5 unidades</td><td>Cantidad óptima de A</td></tr>
+                            <tr><td>y (Producto B)</td><td class="resultado-destacado">10.5 unidades</td><td>Cantidad óptima de B</td></tr>
+                            <tr><td>Beneficio total (Z*)</td><td class="resultado-destacado">$526.75</td><td>Beneficio máximo alcanzable</td></tr>
+                            <tr><td>Horas-máquina usadas</td><td>66.5 de 120</td><td>Recurso no saturado</td></tr>
+                            <tr><td>Materia prima usada</td><td>38.5 de 80</td><td>Recurso no saturado</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        La fábrica maximiza su beneficio produciendo 17.5 unidades de
+                        A y 10.5 de B, alcanzando $526.75. Ninguno de los dos recursos
+                        se agota por completo, lo que indica que la limitación real del
+                        negocio no son las horas-máquina ni la materia prima, sino el
+                        propio comportamiento decreciente de la demanda reflejado en
+                        las funciones de ingreso.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- ACERCA -->
+
+            <section id="acerca" class="seccion">
+
+                <div class="card">
+
+                    <h2>🌸 Sobre este Portafolio</h2><br>
+
+                    <p>
+                        Este portafolio fue desarrollado como parte de los requisitos académicos del curso 
+                        IF7200 Métodos Cuantitativos para la Toma de Decisiones, impartido en la Universidad de Costa Rica.
+                    </p><br>
+
+                    <p>
+                        Su contenido refleja el proceso de aprendizaje llevado a cabo durante el curso, 
+                        integrando los conceptos teóricos, metodologías, herramientas y técnicas cuantitativas estudiadas para el 
+                        análisis y la resolución de problemas relacionados con la toma de decisiones. 
+                        A través de resúmenes, ejercicios prácticos y análisis de resultados, se busca demostrar la comprensión de los temas 
+                        abordados y su aplicación en escenarios real
+                    </p><br>
+
+                    <p>
+                        Además de servir como evidencia académica, este portafolio constituye un recurso de consulta que facilita la revisión de
+                         los principales contenidos del curso, promoviendo una comprensión más profunda de los métodos cuantitativos y 
+                         de su importancia en el ámbito profesional y organizacional. Su diseño busca presentar la información de 
+                         manera clara, ordenada y accesible, favoreciendo tanto el aprendizaje como la reflexión sobre los conocimientos 
+                         adquiridos.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="javascript.js"></script>
+
+</body>
+</html>
