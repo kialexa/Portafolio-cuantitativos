@@ -567,7 +567,12 @@
                         calcula una "penalización" en cada fila y columna (la
                         diferencia entre los dos costos más bajos) y asigna primero las
                         cantidades donde esa penalización es mayor, porque ahí es donde
-                        más se pierde si no se decide bien.
+                        más se pierde si no se decide bien. Cuando el objetivo es
+                        maximizar una ganancia en lugar de minimizar un costo, la
+                        matriz original se convierte primero en una matriz de
+                        <strong>costo de oportunidad</strong> (restando cada ganancia
+                        del valor máximo de la matriz), de modo que el mismo
+                        procedimiento de penalizaciones puede aplicarse sin cambios.
                     </p>
 
                     <p>
@@ -575,210 +580,355 @@
                         óptima mediante el <strong>método de salto de piedra en
                         piedra</strong> (stepping stone): por cada celda vacía se traza
                         un circuito cerrado pasando por celdas con asignación,
-                        alternando signos (+, −, +, −), y se suma el resultado. En un
-                        problema de minimización, si algún circuito da un valor
-                        negativo, existe una ruta mejor y la solución debe ajustarse;
-                        si todos los circuitos dan cero o positivo, la solución ya es
-                        óptima.
+                        alternando signos (+, −, +, −), y se suma el resultado usando
+                        las ganancias (o costos) originales. En un problema de
+                        <strong>maximización</strong>, si algún circuito da un valor
+                        positivo existe una reasignación que mejora la ganancia y la
+                        solución debe ajustarse; si todos los circuitos dan cero o
+                        negativo, la solución ya es óptima (un valor de cero indica
+                        además que existe una solución óptima alternativa con el mismo
+                        resultado).
+                    </p>
+
+                    <p>
+                        Un modelo emparentado es el de <strong>Asignación</strong>, que
+                        se resuelve con el <strong>Método Húngaro</strong>: en lugar de
+                        repartir cantidades entre orígenes y destinos, se busca asignar
+                        recursos completos (un camión, un trabajador, una máquina) a
+                        tareas específicas, una tarea por recurso, optimizando el
+                        rendimiento o costo total. El procedimiento también convierte la
+                        matriz a costos de oportunidad y reduce filas y columnas hasta
+                        encontrar una asignación con un cero independiente en cada fila
+                        y columna.
                     </p>
 
                 </div>
 
                 <div class="card ejercicio">
 
-                    <h3>Ejercicio Resuelto: Distribución de Cajas de Fruta — Cooperativa Sabores del Caribe</h3>
+                    <h3>Caso de Contextualización: Distribución Logística en Limón</h3>
 
                     <p>
-                        La cooperativa agrícola Sabores del Caribe acopia fruta en tres
-                        centros de la zona norte y caribe del país, y debe distribuirla
-                        hacia cuatro ferias y puntos de venta. Se busca la
-                        distribución que minimice el costo total de transporte.
+                        Una empresa distribuidora recibe mercancía en Moín y la
+                        almacena en tres bodegas (orígenes). Debe abastecer cuatro
+                        centros de distribución (destinos). La matriz indica la
+                        <strong>ganancia</strong> (en miles de ₡) por tonelada enviada
+                        de cada bodega a cada destino. El objetivo es
+                        <strong>maximizar</strong> la ganancia total.
                     </p>
 
                     <h4>1. Datos del problema</h4>
 
                     <table class="tabla-resultados">
                         <thead>
-                            <tr><th>Centro de acopio (origen)</th><th>Oferta (cajas)</th></tr>
+                            <tr><th>Origen (bodega)</th><th>Oferta (ton)</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>O1 — Guápiles</td><td>100</td></tr>
-                            <tr><td>O2 — Siquirres</td><td>120</td></tr>
-                            <tr><td>O3 — Sarapiquí</td><td>130</td></tr>
-                            <tr><td><strong>Oferta total</strong></td><td class="resultado-destacado">350</td></tr>
+                            <tr><td>O1 — Moín</td><td>120</td></tr>
+                            <tr><td>O2 — Cieneguita</td><td>100</td></tr>
+                            <tr><td>O3 — Liverpool</td><td>80</td></tr>
+                            <tr><td><strong>Oferta total</strong></td><td class="resultado-destacado">300</td></tr>
                         </tbody>
                     </table>
 
                     <table class="tabla-resultados">
                         <thead>
-                            <tr><th>Feria / destino</th><th>Demanda (cajas)</th></tr>
+                            <tr><th>Destino</th><th>Demanda (ton)</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>D1 — San José</td><td>90</td></tr>
-                            <tr><td>D2 — Heredia</td><td>80</td></tr>
-                            <tr><td>D3 — Cartago</td><td>70</td></tr>
-                            <tr><td>D4 — Puerto Limón (exportación)</td><td>110</td></tr>
-                            <tr><td><strong>Demanda total</strong></td><td class="resultado-destacado">350</td></tr>
+                            <tr><td>D1 — Limón Centro</td><td>70</td></tr>
+                            <tr><td>D2 — Siquirres</td><td>90</td></tr>
+                            <tr><td>D3 — Guápiles</td><td>80</td></tr>
+                            <tr><td>D4 — Talamanca</td><td>60</td></tr>
+                            <tr><td><strong>Demanda total</strong></td><td class="resultado-destacado">300</td></tr>
                         </tbody>
                     </table>
 
                     <p class="nota">
-                        Oferta total (350) = Demanda total (350) → el modelo está
+                        Oferta total (300) = Demanda total (300) → el modelo está
                         balanceado, no se necesitan filas ni columnas ficticias.
                     </p>
 
-                    <p><strong>Matriz de costos</strong> (dólares por caja transportada):</p>
+                    <p><strong>Matriz de ganancia</strong> (miles de ₡ por tonelada):</p>
 
                     <table class="tabla-resultados tabla-matriz">
                         <thead>
-                            <tr><th>Origen / Destino</th><th>D1 San José</th><th>D2 Heredia</th><th>D3 Cartago</th><th>D4 Limón</th></tr>
+                            <tr><th>Origen / Destino</th><th>D1 Limón C.</th><th>D2 Siquirres</th><th>D3 Guápiles</th><th>D4 Talamanca</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>O1 Guápiles</td><td>8</td><td>6</td><td>10</td><td>9</td></tr>
-                            <tr><td>O2 Siquirres</td><td>9</td><td>12</td><td>13</td><td>7</td></tr>
-                            <tr><td>O3 Sarapiquí</td><td>14</td><td>9</td><td>16</td><td>5</td></tr>
+                            <tr><td>O1 Moín</td><td>16</td><td>11</td><td>8</td><td>5</td></tr>
+                            <tr><td>O2 Cieneguita</td><td>15</td><td>12</td><td>9</td><td>6</td></tr>
+                            <tr><td>O3 Liverpool</td><td>14</td><td>13</td><td>10</td><td>7</td></tr>
                         </tbody>
                     </table>
 
-                    <h4>2. Aproximación de Vogel — Iteración 1</h4>
+                    <h4>2. Modelo matemático</h4>
 
-                    <p>
-                        Se calcula la penalización de cada fila y columna restando los
-                        dos costos más bajos:
-                    </p>
+                    <div class="formula-box">Max Z = 16X11 + 11X12 + 8X13 + 5X14 + 15X21 + 12X22 + 9X23 + 6X24 + 14X31 + 13X32 + 10X33 + 7X34</div>
 
                     <div class="paso">
-                        <p>Filas → O1: 8−6=2 · O2: 9−7=2 · O3: 9−5=<strong>4</strong></p>
-                        <p>Columnas → D1: 9−8=1 · D2: 9−6=3 · D3: 13−10=3 · D4: 7−5=2</p>
+                        <p>Variable de decisión: Xij = toneladas enviadas desde la bodega i hacia el destino j</p>
+                        <p>Oferta: X11+X12+X13+X14 = 120 · X21+X22+X23+X24 = 100 · X31+X32+X33+X34 = 80</p>
+                        <p>Demanda: X11+X21+X31 = 70 · X12+X22+X32 = 90 · X13+X23+X33 = 80 · X14+X24+X34 = 60</p>
+                        <p>No negatividad: Xij ≥ 0</p>
+                    </div>
+
+                    <h4>3. Conversión a costo de oportunidad</h4>
+
+                    <p>
+                        Como el problema es de maximización, se transforma la matriz de
+                        ganancia en una matriz de costo de oportunidad, restando cada
+                        valor del máximo de toda la matriz (16):
+                    </p>
+
+                    <table class="tabla-resultados tabla-matriz">
+                        <thead>
+                            <tr><th>Origen / Destino</th><th>D1</th><th>D2</th><th>D3</th><th>D4</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>O1 Moín</td><td>0</td><td>5</td><td>8</td><td>11</td></tr>
+                            <tr><td>O2 Cieneguita</td><td>1</td><td>4</td><td>7</td><td>10</td></tr>
+                            <tr><td>O3 Liverpool</td><td>2</td><td>3</td><td>6</td><td>9</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>4. Aproximación de Vogel — Iteración 1</h4>
+
+                    <div class="paso">
+                        <p>Filas → O1: 5−0=<strong>5</strong> · O2: 4−1=3 · O3: 3−2=1</p>
+                        <p>Columnas → D1: 1 · D2: 1 · D3: 1 · D4: 1</p>
                     </div>
 
                     <p>
-                        La penalización más alta es 4, en la fila O3 (Sarapiquí). Dentro
-                        de esa fila, el costo más bajo es hacia D4 (Limón, $5). Se
-                        asigna lo máximo posible: min(130, 110) = 110.
+                        Mayor penalización = 5 (fila O1). Su celda de menor costo es D1
+                        (costo 0). Se asigna min(120, 70) = 70.
                     </p>
 
                     <p class="nota">
-                        Asignación: O3 → D4 = 110 cajas. Demanda de D4 queda en 0 (se
-                        cierra la columna). Oferta de O3 baja de 130 a 20.
+                        Asignación: O1 → D1 = 70 ton. D1 queda satisfecho (se cierra la
+                        columna). Oferta de O1 baja de 120 a 50.
                     </p>
 
-                    <h4>3. Iteración 2</h4>
+                    <h4>5. Iteración 2</h4>
 
                     <div class="paso">
-                        <p>Filas → O1: 8−6=2 · O2: 9−7=3 · O3: 14−9=<strong>5</strong></p>
-                        <p>Columnas → D1: 1 · D2: 3 · D3: 3</p>
+                        <p>Filas → O1: 8−5=3 · O2: 7−4=3 · O3: 6−3=3 (empate)</p>
+                        <p>Columnas → D2: 1 · D3: 1 · D4: 1</p>
                     </div>
 
                     <p>
-                        La mayor penalización es 5, en O3. Su costo más bajo restante
-                        es D2 (Heredia, $9). Se asigna min(20, 80) = 20.
+                        Empate en penalización (3). Se elige la celda de menor costo
+                        disponible entre las filas empatadas: O3–D2 (costo 3). Se
+                        asigna min(80, 90) = 80.
                     </p>
 
                     <p class="nota">
-                        Asignación: O3 → D2 = 20 cajas. Oferta de O3 llega a 0 (se
-                        cierra la fila). Demanda de D2 baja de 80 a 60.
+                        Asignación: O3 → D2 = 80 ton. Oferta de O3 llega a 0 (se cierra
+                        la fila). Demanda de D2 baja de 90 a 10.
                     </p>
 
-                    <h4>4. Iteración 3</h4>
+                    <h4>6. Iteración 3</h4>
 
                     <div class="paso">
-                        <p>Filas → O1: 8−6=2 · O2: 9−7=3</p>
-                        <p>Columnas → D1: 1 · D2: 12−6=<strong>6</strong> · D3: 3</p>
+                        <p>Filas → O1: 8−5=3 · O2: 7−4=3 (empate)</p>
+                        <p>Columnas → D2: 1 · D3: 1 · D4: 1</p>
                     </div>
 
                     <p>
-                        Ahora la mayor penalización es 6, en la columna D2. Dentro de
-                        esa columna, el costo más bajo activo es O1 ($6). Se asigna
-                        min(100, 60) = 60.
+                        Vuelve a haber empate en 3. La celda de menor costo disponible
+                        es O2–D2 (costo 4). Se asigna min(100, 10) = 10.
                     </p>
 
                     <p class="nota">
-                        Asignación: O1 → D2 = 60 cajas. Demanda de D2 llega a 0 (se
-                        cierra la columna). Oferta de O1 baja de 100 a 40.
+                        Asignación: O2 → D2 = 10 ton. D2 se satisface (se cierra la
+                        columna). Oferta de O2 baja de 100 a 90.
                     </p>
 
-                    <h4>5. Iteración 4</h4>
+                    <h4>7. Iteración 4</h4>
 
                     <div class="paso">
-                        <p>Filas → O1: 10−8=2 · O2: 13−9=<strong>4</strong></p>
-                        <p>Columnas → D1: 1 · D3: 3</p>
+                        <p>Filas → O1: 11−8=3 · O2: 10−7=3 (empate)</p>
+                        <p>Columnas → D3: 1 · D4: 1</p>
                     </div>
 
                     <p>
-                        La mayor penalización es 4, en O2. Su costo más bajo activo es
-                        D1 (San José, $9). Se asigna min(120, 90) = 90.
+                        Empate en 3 nuevamente. La celda de menor costo disponible es
+                        O2–D3 (costo 7). Se asigna min(90, 80) = 80.
                     </p>
 
                     <p class="nota">
-                        Asignación: O2 → D1 = 90 cajas. Demanda de D1 llega a 0 (se
-                        cierra la columna). Oferta de O2 baja de 120 a 30.
+                        Asignación: O2 → D3 = 80 ton. D3 se satisface (se cierra la
+                        columna). Oferta de O2 baja de 90 a 10.
                     </p>
 
-                    <h4>6. Asignación final</h4>
+                    <h4>8. Asignación final</h4>
 
                     <p>
-                        Solo queda activa la columna D3 (Cartago, demanda 70) y las
-                        filas O1 (40) y O2 (30). Como ya no hay opciones que comparar,
-                        se reparte directamente: O2 → D3 = 30 (agota la oferta de O2) y
-                        O1 → D3 = 40 (cubre exactamente el resto de la demanda de D3).
+                        Solo queda activa la columna D4 (demanda 60) con las filas O1
+                        (50) y O2 (10) disponibles. Se reparte directamente: O2 → D4 =
+                        10 (agota la oferta de O2) y O1 → D4 = 50 (agota O1 y satisface
+                        exactamente la demanda de D4).
                     </p>
 
                     <table class="tabla-resultados tabla-final">
                         <thead>
-                            <tr><th>Ruta</th><th>Cajas</th><th>Costo unitario</th><th>Subtotal</th></tr>
+                            <tr><th>Ruta</th><th>Toneladas</th><th>Ganancia unitaria</th><th>Subtotal</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>O1 → D2 (Guápiles–Heredia)</td><td>60</td><td>$6</td><td>$360</td></tr>
-                            <tr><td>O1 → D3 (Guápiles–Cartago)</td><td>40</td><td>$10</td><td>$400</td></tr>
-                            <tr><td>O2 → D1 (Siquirres–San José)</td><td>90</td><td>$9</td><td>$810</td></tr>
-                            <tr><td>O2 → D3 (Siquirres–Cartago)</td><td>30</td><td>$13</td><td>$390</td></tr>
-                            <tr><td>O3 → D2 (Sarapiquí–Heredia)</td><td>20</td><td>$9</td><td>$180</td></tr>
-                            <tr><td>O3 → D4 (Sarapiquí–Limón)</td><td>110</td><td>$5</td><td>$550</td></tr>
-                            <tr><td colspan="3"><strong>Costo total</strong></td><td class="resultado-destacado">$2,690</td></tr>
+                            <tr><td>O1 → D1 (Moín–Limón Centro)</td><td>70</td><td>16</td><td>1 120</td></tr>
+                            <tr><td>O1 → D4 (Moín–Talamanca)</td><td>50</td><td>5</td><td>250</td></tr>
+                            <tr><td>O2 → D2 (Cieneguita–Siquirres)</td><td>10</td><td>12</td><td>120</td></tr>
+                            <tr><td>O2 → D3 (Cieneguita–Guápiles)</td><td>80</td><td>9</td><td>720</td></tr>
+                            <tr><td>O2 → D4 (Cieneguita–Talamanca)</td><td>10</td><td>6</td><td>60</td></tr>
+                            <tr><td>O3 → D2 (Liverpool–Siquirres)</td><td>80</td><td>13</td><td>1 040</td></tr>
+                            <tr><td colspan="3"><strong>Ganancia total (en miles ₡)</strong></td><td class="resultado-destacado">3 310</td></tr>
                         </tbody>
                     </table>
 
-                    <h4>7. Verificación con salto de piedra en piedra</h4>
+                    <p class="nota">
+                        Z = 16(70) + 5(50) + 12(10) + 9(80) + 6(10) + 13(80) = 3 310 →
+                        ₡3 310 000 de ganancia total.
+                    </p>
+
+                    <h4>9. Verificación con salto de piedra en piedra</h4>
 
                     <p>
-                        Para confirmar que la solución de Vogel ya es la óptima, se
-                        evalúan las celdas vacías trazando un circuito cerrado que
-                        alterna signos (+, −, +, −) entre celdas con asignación. Como
-                        este es un problema de <strong>minimización</strong>, un
-                        resultado negativo indicaría que existe una ruta más barata; un
-                        resultado positivo o cero confirma que no conviene cambiar.
+                        Requisito previo: m + n − 1 = 3 + 4 − 1 = 6 celdas ocupadas; hay
+                        exactamente 6, por lo que el método puede aplicarse. Para cada
+                        celda vacía se forma un circuito cerrado saltando solo por
+                        celdas ocupadas, alternando signos (+, −), y se calcula Δ con
+                        las ganancias originales. Como este es un problema de
+                        <strong>maximización</strong>, un Δ positivo indicaría que
+                        conviene reasignar; si todos los Δ son cero o negativos, la
+                        solución ya es óptima.
                     </p>
 
                     <div class="paso">
-                        <p>Celda vacía O1–D1: circuito O1D1(+) → O2D1(−) → O2D3(+) → O1D3(−)</p>
-                        <p>8 − 9 + 13 − 10 = <strong>+2</strong> (positivo, no mejora)</p>
+                        <p>X12 (O1–D2): +X12−X14+X24−X22 → 11−5+6−12 = <strong>0</strong></p>
+                        <p>X13 (O1–D3): +X13−X14+X24−X23 → 8−5+6−9 = <strong>0</strong></p>
+                        <p>X21 (O2–D1): +X21−X11+X14−X24 → 15−16+5−6 = <strong>−2</strong></p>
                     </div>
 
                     <div class="paso">
-                        <p>Celda vacía O3–D1: circuito O3D1(+) → O3D2(−) → O1D2(+) → O1D3(−) → O2D3(+) → O2D1(−)</p>
-                        <p>14 − 9 + 6 − 10 + 13 − 9 = <strong>+5</strong> (positivo, no mejora)</p>
+                        <p>X31 (O3–D1): +X31−X11+X14−X24+X22−X32 → 14−16+5−6+12−13 = <strong>−4</strong></p>
+                        <p>X33 (O3–D3): +X33−X23+X22−X32 → 10−9+12−13 = <strong>0</strong></p>
+                        <p>X34 (O3–D4): +X34−X24+X22−X32 → 7−6+12−13 = <strong>0</strong></p>
                     </div>
 
                     <p class="nota">
-                        Al evaluar de la misma forma las celdas restantes (O1–D4,
-                        O2–D2, O2–D4 y O3–D3) todas arrojan resultados positivos, por
-                        lo que ningún cambio de ruta reduce el costo total: la solución
-                        de $2,690 es el óptimo absoluto.
+                        Todos los Δ son ≤ 0 → la solución de Vogel ya es óptima. Los
+                        valores Δ = 0 (celdas X12, X13, X33 y X34) indican además que
+                        existen <strong>soluciones óptimas alternativas</strong> con la
+                        misma ganancia de ₡3 310 000 — por ejemplo, reasignar por el
+                        circuito de X12 lleva a la distribución equivalente O1–D1=70,
+                        O1–D2=50, O2–D2=40, O2–D3=60, O3–D3=20, O3–D4=60, que también da
+                        Z = 3 310. Esto le da flexibilidad operativa a la empresa.
                     </p>
 
-                    <h4>8. Interpretación final</h4>
+                    <h4>10. Modelo de Asignación — Método Húngaro</h4>
 
                     <p>
-                        La distribución óptima reparte la oferta de Guápiles entre
-                        Heredia y Cartago, la de Siquirres entre San José y Cartago, y
-                        la de Sarapiquí entre Heredia y la exportación por Puerto
-                        Limón, alcanzando un costo total de transporte de
-                        <strong>$2,690</strong>. Ninguna ruta alternativa —verificada
-                        mediante el método de salto de piedra en piedra— logra reducir
-                        ese costo, por lo que la cooperativa puede implementar este
-                        plan de distribución con la certeza de que es matemáticamente
-                        el más económico posible.
+                        La empresa cuenta con 4 camiones para cubrir 4 rutas. Cada
+                        celda de la matriz es el rendimiento del camión en esa ruta;
+                        cada camión cubre una sola ruta y cada ruta es cubierta por un
+                        solo camión. El objetivo es <strong>maximizar</strong> el
+                        rendimiento total.
+                    </p>
+
+                    <table class="tabla-resultados tabla-matriz">
+                        <thead>
+                            <tr><th>Camión / Ruta</th><th>R1 Limón C.</th><th>R2 Siquirres</th><th>R3 Guápiles</th><th>R4 Talamanca</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Camión 1</td><td>90</td><td>75</td><td>70</td><td>60</td></tr>
+                            <tr><td>Camión 2</td><td>80</td><td>88</td><td>82</td><td>74</td></tr>
+                            <tr><td>Camión 3</td><td>70</td><td>78</td><td>92</td><td>85</td></tr>
+                            <tr><td>Camión 4</td><td>75</td><td>80</td><td>86</td><td>95</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        <strong>Paso 1 — Costo de oportunidad:</strong> al ser
+                        maximización, se resta cada celda del valor máximo de la
+                        matriz (95): pérdida = 95 − rendimiento.
+                    </p>
+
+                    <table class="tabla-resultados tabla-matriz">
+                        <thead>
+                            <tr><th>Camión / Ruta</th><th>R1</th><th>R2</th><th>R3</th><th>R4</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Camión 1</td><td>5</td><td>20</td><td>25</td><td>35</td></tr>
+                            <tr><td>Camión 2</td><td>15</td><td>7</td><td>13</td><td>21</td></tr>
+                            <tr><td>Camión 3</td><td>25</td><td>17</td><td>3</td><td>10</td></tr>
+                            <tr><td>Camión 4</td><td>20</td><td>15</td><td>9</td><td>0</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        <strong>Paso 2 — Reducción por filas</strong> (mínimos: C1=5,
+                        C2=7, C3=3, C4=0):
+                    </p>
+
+                    <table class="tabla-resultados tabla-matriz">
+                        <thead>
+                            <tr><th>Camión / Ruta</th><th>R1</th><th>R2</th><th>R3</th><th>R4</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Camión 1</td><td>0</td><td>15</td><td>20</td><td>30</td></tr>
+                            <tr><td>Camión 2</td><td>8</td><td>0</td><td>6</td><td>14</td></tr>
+                            <tr><td>Camión 3</td><td>22</td><td>14</td><td>0</td><td>7</td></tr>
+                            <tr><td>Camión 4</td><td>20</td><td>15</td><td>9</td><td>0</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p class="nota">
+                        Paso 3 — Reducción por columnas: los mínimos de cada columna ya
+                        son 0, por lo que la matriz no cambia.
+                    </p>
+
+                    <p>
+                        <strong>Paso 4 — Prueba de optimalidad:</strong> hay un cero
+                        independiente en cada fila y columna (C1–R1, C2–R2, C3–R3,
+                        C4–R4). Se necesitan 4 líneas para cubrir todos los ceros,
+                        igual a n = 4, por lo que ya se puede asignar de forma óptima.
+                    </p>
+
+                    <table class="tabla-resultados tabla-final">
+                        <thead>
+                            <tr><th>Camión</th><th>Ruta asignada</th><th>Rendimiento</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Camión 1</td><td>R1 Limón Centro</td><td>90</td></tr>
+                            <tr><td>Camión 2</td><td>R2 Siquirres</td><td>88</td></tr>
+                            <tr><td>Camión 3</td><td>R3 Guápiles</td><td>92</td></tr>
+                            <tr><td>Camión 4</td><td>R4 Talamanca</td><td>95</td></tr>
+                            <tr><td colspan="2"><strong>Rendimiento total (Z)</strong></td><td class="resultado-destacado">365</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h4>11. Interpretación final</h4>
+
+                    <p>
+                        El modelo de transporte determina que la ganancia máxima de
+                        distribución es de <strong>₡3 310 000</strong>, enviando 70 y
+                        50 toneladas desde Moín hacia Limón Centro y Talamanca; 10, 80
+                        y 10 toneladas desde Cieneguita hacia Siquirres, Guápiles y
+                        Talamanca; y 80 toneladas desde Liverpool hacia Siquirres. El
+                        método de salto de piedra en piedra confirma que esta solución
+                        es óptima, con la ventaja adicional de contar con soluciones
+                        alternativas igualmente óptimas que dan flexibilidad operativa.
+                    </p>
+
+                    <p>
+                        Por su parte, el modelo de asignación resuelto con el Método
+                        Húngaro determina que el rendimiento máximo de la flota se
+                        logra asignando el Camión 1 a Limón Centro, el Camión 2 a
+                        Siquirres, el Camión 3 a Guápiles y el Camión 4 a Talamanca,
+                        alcanzando un rendimiento total de <strong>365</strong>. Ambos
+                        resultados le permiten a la empresa planificar su logística en
+                        la zona Caribe con la certeza de estar operando de forma
+                        matemáticamente óptima.
                     </p>
 
                 </div>
